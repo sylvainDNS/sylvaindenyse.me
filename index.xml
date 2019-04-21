@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sylvain DENYSE - Web Developer Designer</title>
-    <link>https://sylvaindenyse.me/</link>
+    <link>sylvaindenyse.me/</link>
     <description>Recent content on Sylvain DENYSE - Web Developer Designer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     
-	<atom:link href="https://sylvaindenyse.me/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="sylvaindenyse.me/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>More information</title>
-      <link>https://sylvaindenyse.me/more/</link>
+      <link>sylvaindenyse.me/more/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://sylvaindenyse.me/more/</guid>
+      <guid>sylvaindenyse.me/more/</guid>
       <description></description>
     </item>
     

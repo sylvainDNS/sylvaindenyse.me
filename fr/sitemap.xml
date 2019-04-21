@@ -3,61 +3,61 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://sylvaindenyse.me/fr/categories/</loc>
+    <loc>sylvaindenyse.me/fr/categories/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sylvaindenyse.me/categories/"
+                href="sylvaindenyse.me/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://sylvaindenyse.me/fr/categories/"
+                href="sylvaindenyse.me/fr/categories/"
                 />
   </url>
   
   <url>
-    <loc>https://sylvaindenyse.me/fr/more/</loc>
+    <loc>sylvaindenyse.me/fr/more/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sylvaindenyse.me/more/"
+                href="sylvaindenyse.me/more/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://sylvaindenyse.me/fr/more/"
+                href="sylvaindenyse.me/fr/more/"
                 />
   </url>
   
   <url>
-    <loc>https://sylvaindenyse.me/fr/</loc>
+    <loc>sylvaindenyse.me/fr/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sylvaindenyse.me/"
+                href="sylvaindenyse.me/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://sylvaindenyse.me/fr/"
+                href="sylvaindenyse.me/fr/"
                 />
   </url>
   
   <url>
-    <loc>https://sylvaindenyse.me/fr/tags/</loc>
+    <loc>sylvaindenyse.me/fr/tags/</loc>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://sylvaindenyse.me/tags/"
+                href="sylvaindenyse.me/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
-                href="https://sylvaindenyse.me/fr/tags/"
+                href="sylvaindenyse.me/fr/tags/"
                 />
   </url>
   

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>sylvaindenyse.me/categories/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="sylvaindenyse.me/fr/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="sylvaindenyse.me/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>sylvaindenyse.me/more/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="sylvaindenyse.me/fr/more/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="sylvaindenyse.me/more/"
+                />
+  </url>
+  
+  <url>
+    <loc>sylvaindenyse.me/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="sylvaindenyse.me/fr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="sylvaindenyse.me/"
+                />
+  </url>
+  
+  <url>
+    <loc>sylvaindenyse.me/tags/</loc>
+    <priority>0</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="sylvaindenyse.me/fr/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="sylvaindenyse.me/tags/"
+                />
+  </url>
+  
+</urlset>

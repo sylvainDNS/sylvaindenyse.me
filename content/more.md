@@ -2,3 +2,52 @@
 title = "More information"
 slug = "more"
 +++
+
+<div class="avatar left">
+    <img src="/images/avatar.jpg" alt="avatar">
+</div>
+I am 23 years old and I am passionate about computing in the broad sense: dev, web technos, hardware, Linux, IoT,...
+
+After two years of work experience in Business Intelligence within the [Fleury Michon](https://www.fleurymichon.fr/) group, I decided to take charge of my professional project and direct it towards web development, my first passion.
+I am currently finishing my fifth year of study at [Pepperbay](https://www.pepperbay.fr/), a web development agency.
+
+## Professional experience
+
+Development of an international trading software, a monolithic application in Symfony 3.4 / Twig.
+The challenge of the project is its complete redesign, but without interruption in the development of new features :
+
+- Back : API Platform (Symfony 4)
+- Front : ReactJS
+
+## Skills and competencies
+
+- Languages : Javascript, Python, PHP, ...
+- CI : Jenkins, Gitlab CI, ...
+- System : NGINX, Docker, Makefile, Kubernetes, Linux, ...
+- Methodology : SCRUM
+
+## School course
+
+**EPSI - Master of Science in Computer Engineering** : 2017 - 2019  
+Training leading to a level I RNCP qualification (Bac+5) "Expert in Computer Science and Information Systems", and carried out in an apprenticeship in the [Fleury Michon](https://www.fleurymichon.fr/) company and [Pepperbay](https://www.pepperbay.fr/).
+
+**IIA Laval - Bachelor of Science in Computer Science** : 2016 - 2017  
+Training in partnership with the CNAM, carried out under a professionalization contract with [Fleury Michon](https://www.fleurymichon.fr/).
+
+**IUT of Nantes - Computer Science Associate’s Degree** : 2014 - 2016  
+Journey through computer science basics (design, project management, web, database,...).
+
+## Associative
+
+**Stage Manager - Art'Culmine Association** : 2015 - 2019  
+Stage design and lighting.  
+Technical design of sound, video and light.
+
+**Vice-President - BDE Astro'Nantes** : 2015 - 2016  
+Organization of events for a student association.
+
+**Actor and horse rider - Cinéscénie at Puy du Fou** : 2007 - 2019  
+Participation in a major live show telling the history of the region.
+
+**Vidéo Jockey - Asia Project Association** : 2013  
+Live video design and mix to illustrate DJ mixes.

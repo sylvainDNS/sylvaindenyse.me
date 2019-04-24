@@ -36,3 +36,18 @@ Formation en partenariat avec le CNAM, réalisée en contrat de professionalisat
 
 **IUT de Nantes - DUT Informatique** : 2014 - 2016  
 Parcours des bases de l'informatique (conception, pilotage de projet, web, base de données, ...).
+
+## Associatif
+
+**Régisseur - Association Art'Culmine** : 2015 - 2019  
+Conception de scène et mise en lumière.  
+Conception technique son, vidéo et lumière.
+
+**Vice-Président - BDE Astro'Nantes** : 2015 - 2016  
+Organisation d'événements pour une association étudiante.
+
+**Acteur et cavalier - Cinéscénie du Puy du Fou** : 2007 - 2019  
+Participation à un grand spectacle vivant racontant l'histoire de la région.
+
+**Vidéo Jockey - Association Asia Project** : 2013  
+Conception et mix vidéo en direct pour illustrer les mixs de DJ.

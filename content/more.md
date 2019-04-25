@@ -4,7 +4,7 @@ slug = "more"
 +++
 
 <div class="avatar left">
-    <img src="/images/avatar.jpg" alt="avatar">
+    <img src="/img/avatar.jpg" alt="avatar">
 </div>
 I am 23 years old and I am passionate about computing in the broad sense: dev, web technos, hardware, Linux, IoT,...
 

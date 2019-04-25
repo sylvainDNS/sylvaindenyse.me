@@ -8,18 +8,20 @@ canonifyurls = false
 
 [params]
     author = "Sylvain DENYSE"
-    avatarurl = "images/avatar.jpg"
+    avatarurl = "/img/avatar.jpg"
 
-    favicon_32 = "/img/favicon-32x32.png"
-    favicon_16 = "/img/favicon-16x16.png"
-
+    favicon_32 = "/favicon-32x32.png"
+    favicon_16 = "/favicon-16x16.png"
+    favicon = "/favicon.ico"
+    manifest = "/manifest.json"
+    
     hidecredits = true
     hidecopyright = false
 
     rtl = false
 
     math = false
-    custom_css = ["css/custom.css"]
+    custom_css = ["/css/custom.css"]
 
 [languages]
     [languages.en]

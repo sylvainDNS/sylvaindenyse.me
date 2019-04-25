@@ -3,6 +3,20 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://sylvaindenyse.me/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr"
+                href="https://sylvaindenyse.me/fr/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://sylvaindenyse.me/"
+                />
+  </url>
+  
+  <url>
     <loc>https://sylvaindenyse.me/categories/</loc>
     <priority>0</priority>
     <xhtml:link
@@ -28,21 +42,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://sylvaindenyse.me/more/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://sylvaindenyse.me/</loc>
-    <priority>0</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr"
-                href="https://sylvaindenyse.me/fr/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://sylvaindenyse.me/"
                 />
   </url>
   

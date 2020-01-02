@@ -6,12 +6,28 @@ slug = "more"
 <div class="avatar left">
     <img src="/img/avatar.jpg" alt="avatar">
 </div>
-I am 23 years old and I am passionate about computing in the broad sense: dev, web technos, hardware, Linux, IoT,...
+I am 24 years old and I am passionate about computing in the broad sense: dev, web technos, hardware, Linux, IoT,...
 
-After two years of work experience in Business Intelligence within the [Fleury Michon](https://www.fleurymichon.fr/) group, I decided to take charge of my professional project and direct it towards web development, my first passion.
-I am currently finishing my fifth year of study at [Pepperbay](https://www.pepperbay.fr/), a web development agency.
+After two years of work experience in Business Intelligence within the [Fleury Michon](https://www.fleurymichon.fr/) group, I decided to take charge of my professional project and direct it towards web development, my first passion.  
+I am actually working in [Pepperbay](https://www.pepperbay.fr/), a web development agency, after a work-study program accomplished in this company.
 
 ## Professional experience
+
+**Pepperbay - Web Developer** : 2019 - ..
+
+In charge of redesigning the interface of an international trading application.  
+Choice of technologies (frameworks & libraries).
+
+Technical Stack :
+
+- [React](https://reactjs.org/)
+- State management : [Redux](https://redux.js.org/)
+- Effects management : [Redux-Saga](https://redux-saga.js.org/)
+- Graphic components management : [Storybook](https://storybook.js.org/)
+- Internationalization management : [i18next](https://www.i18next.com/)
+- Others : [Webpack](https://webpack.js.org/), [Ramda](https://ramdajs.com/), [Husky](https://github.com/typicode/husky), [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
+
+**Pepperbay - Work-Study Program** : 2018 - 2019
 
 Development of an international trading software, a monolithic application in Symfony 3.4 / Twig.
 The challenge of the project is its complete redesign, but without interruption in the development of new features :
@@ -22,7 +38,7 @@ The challenge of the project is its complete redesign, but without interruption 
 ## Skills and competencies
 
 - Languages : Javascript, Python, PHP, ...
-- CI : Jenkins, Gitlab CI, ...
+- CI : Gitlab CI, GitHub Actions, Jenkins, ...
 - System : NGINX, Docker, Makefile, Kubernetes, Linux, ...
 - Methodology : SCRUM
 

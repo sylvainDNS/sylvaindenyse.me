@@ -6,14 +6,30 @@ slug = "more"
 <div class="avatar left">
     <img src="/img/avatar.jpg" alt="avatar">
 </div>
-J'ai 23 ans et je suis passionné d'informatique au sens large : dev, technos web, hardware, Linux, IoT, ...
+J'ai 24 ans et je suis passionné d'informatique au sens large : dev, technos web, hardware, Linux, IoT, ...
 
-Après 2 années d'alternances dans la Business Intelligence au sein du groupe [Fleury Michon](https://www.fleurymichon.fr/), j'ai décidé de prendre en main mon projet professionnel et de l'orienter vers le développement web, ma première passion.
-Je finis actuellement ma cinquième année d'étude chez [Pepperbay](https://www.pepperbay.fr/), agence de développement web.
+Après 2 années d'alternances dans la Business Intelligence au sein du groupe [Fleury Michon](https://www.fleurymichon.fr/), j'ai décidé de prendre en main mon projet professionnel et de l'orienter vers le développement web, ma première passion.  
+Je travaille actuellement chez [Pepperbay](https://www.pepperbay.fr/), agence de développement web, après avoir accompli une année en alternance dans cette entreprise.
 
 ## Expériences professionnelles
 
-Développement d'un logiciel de négoce internationnal, une application monolithique en Symfony 3.4 / Twig.
+**Pepperbay - Développeur web** : 2019 - ...
+
+En charge de la refonte de l'interface d'une application de négoce international.  
+Choix des technologies (frameworks & bibliothèques).
+
+Stack technique :
+
+- [React](https://reactjs.org/)
+- Gestion du state : [Redux](https://redux.js.org/)
+- Gestion des effets : [Redux-Saga](https://redux-saga.js.org/)
+- Gestion des composants graphiques : [Storybook](https://storybook.js.org/)
+- Gestion de l'internationalisation : [i18next](https://www.i18next.com/)
+- Divers : [Webpack](https://webpack.js.org/), [Ramda](https://ramdajs.com/), [Husky](https://github.com/typicode/husky), [ESLint](https://eslint.org/), [Prettier](https://prettier.io/)
+
+**Pepperbay - Contrat de professionalisation** : 2018 - 2019
+
+Développement d'un logiciel de négoce international, une application monolithique en Symfony 3.4 / Twig.
 L'enjeu du projet est sa refonte complète, mais sans interruption dans le développement de nouvelles fonctionnalités :
 
 - Back : API Platform (Symfony 4)
@@ -22,7 +38,7 @@ L'enjeu du projet est sa refonte complète, mais sans interruption dans le déve
 ## Compétences
 
 - Langages : Javascript, Python, PHP, ...
-- CI : Jenkins, Gitlab CI, ...
+- CI : Gitlab CI, GitHub Actions, Jenkins, ...
 - Système : NGINX, Docker, Makefile, Kubernetes, Linux, ...
 - Méthodologie : SCRUM
 

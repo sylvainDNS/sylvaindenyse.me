@@ -28,13 +28,13 @@ The challenge of the project is its complete redesign, but without interruption 
 
 ## School course
 
-**EPSI - Master of Science in Computer Engineering** : 2017 - 2019  
+**[EPSI](http://www.epsi.fr/) - Master of Science in Computer Engineering** : 2017 - 2019  
 Training leading to a level I RNCP qualification (Bac+5) "Expert in Computer Science and Information Systems", and carried out in an apprenticeship in the [Fleury Michon](https://www.fleurymichon.fr/) company and [Pepperbay](https://www.pepperbay.fr/).
 
-**IIA Laval - Bachelor of Science in Computer Science** : 2016 - 2017  
+**[IIA Laval](http://iia-laval.fr/) - Bachelor of Science in Computer Science** : 2016 - 2017  
 Training in partnership with the CNAM, carried out under a professionalization contract with [Fleury Michon](https://www.fleurymichon.fr/).
 
-**IUT of Nantes - Computer Science Associate’s Degree** : 2014 - 2016  
+**[IUT de Nantes](https://iutnantes.univ-nantes.fr/formations/dut-bac-2-/dut-informatique-2019469.kjsp) - Computer Science Associate’s Degree** : 2014 - 2016  
 Journey through computer science basics (design, project management, web, database,...).
 
 ## Associative

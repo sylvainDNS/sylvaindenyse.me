@@ -28,13 +28,13 @@ L'enjeu du projet est sa refonte complète, mais sans interruption dans le déve
 
 ## Parcours scolaire
 
-**EPSI - Ingénierie Informatique** : 2017 - 2019  
+**[EPSI](http://www.epsi.fr/) - Ingénierie Informatique** : 2017 - 2019  
 Formation sanctionnée par un titre RNCP de niveau I (Bac+5) « Expert en Informatique et Système d'Information », et réalisée en alternance dans l'entreprise [Fleury Michon](https://www.fleurymichon.fr/) et [Pepperbay](https://www.pepperbay.fr/).
 
-**IIA Laval - Licence Informatique Générale** : 2016 - 2017  
+**[IIA Laval](http://iia-laval.fr/) - Licence Informatique Générale** : 2016 - 2017  
 Formation en partenariat avec le CNAM, réalisée en contrat de professionalisation dans l'entreprise [Fleury Michon](https://www.fleurymichon.fr/).
 
-**IUT de Nantes - DUT Informatique** : 2014 - 2016  
+**[IUT de Nantes](https://iutnantes.univ-nantes.fr/formations/dut-bac-2-/dut-informatique-2019469.kjsp) - DUT Informatique** : 2014 - 2016  
 Parcours des bases de l'informatique (conception, pilotage de projet, web, base de données, ...).
 
 ## Associatif

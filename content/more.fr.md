@@ -54,14 +54,14 @@ Parcours des bases de l'informatique (conception, pilotage de projet, web, base 
 
 ## Associatif
 
-**Régisseur - Association Art'Culmine** : 2015 - 2019  
+**Régisseur - Association Art'Culmine** : 2015 - ...  
 Conception de scène et mise en lumière.  
 Conception technique son, vidéo et lumière.
 
 **Vice-Président - BDE Astro'Nantes** : 2015 - 2016  
 Organisation d'événements pour une association étudiante.
 
-**Acteur et cavalier - Cinéscénie du Puy du Fou** : 2007 - 2019  
+**Acteur et cavalier - Cinéscénie du Puy du Fou** : 2007 - ...  
 Participation à un grand spectacle vivant racontant l'histoire de la région.
 
 **Vidéo Jockey - Association Asia Project** : 2013  

@@ -54,15 +54,15 @@ Journey through computer science basics (design, project management, web, databa
 
 ## Associative
 
-**Stage Manager - Art'Culmine Association**: 2015 - 2019  
+**Stage Manager - Art'Culmine Association**: 2015 - ...  
 Stage design and lighting.  
 Technical design of sound, video and light.
 
 **Vice-President - BDE Astro'Nantes**: 2015 - 2016  
 Organization of events for a student association.
 
-**Actor and horse rider - Cinéscénie at Puy du Fou**: 2007 - 2019  
+**Actor and horse rider - Cinéscénie at Puy du Fou**: 2007 - ...  
 Participation in a major live show telling the history of the region.
 
-**Vidéo Jockey - Asia Project Association**: 2013  
+**Video Jockey - Asia Project Association**: 2013  
 Live video design and mix to illustrate DJ mixes.

@@ -16,7 +16,7 @@ Je travaille actuellement chez [Pepperbay](https://www.pepperbay.fr/), agence de
 **Pepperbay - Développeur web** : 2019 - ...
 
 En charge de la refonte de l'interface d'une application de négoce international.  
-Choix des technologies (frameworks & bibliothèques).
+Choix des technologies (bibliothèques & frameworks).
 
 Stack technique :
 
@@ -33,7 +33,7 @@ Développement d'un logiciel de négoce international, une application monolithi
 L'enjeu du projet est sa refonte complète, mais sans interruption dans le développement de nouvelles fonctionnalités :
 
 - Back : API Platform (Symfony 4)
-- Front : ReactJS
+- Front : React
 
 ## Compétences
 

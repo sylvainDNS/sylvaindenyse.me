@@ -1,8 +1,8 @@
 article {
-    text-align: justify;
+  text-align: justify;
 }
 
 .left {
-    float: left;
-    margin: 0 15px 15px 0;
+  float: left;
+  margin: 0 15px 15px 0;
 }

@@ -3,9 +3,8 @@ title = "En savoir plus"
 slug = "more"
 +++
 
-<div class="avatar left">
-    <img src="/img/avatar.jpg" alt="avatar">
-</div>
+{{<figure class="avatar left" src="/img/avatar.jpg" alt="avatar">}}
+
 J'ai 24 ans et je suis passionné d'informatique au sens large : dev, technos web, hardware, Linux, IoT, ...
 
 Après 2 années d'alternances dans la Business Intelligence au sein du groupe [Fleury Michon](https://www.fleurymichon.fr/), j'ai décidé de prendre en main mon projet professionnel et de l'orienter vers le développement web, ma première passion.  

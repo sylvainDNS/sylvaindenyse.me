@@ -3,9 +3,8 @@ title = "More information"
 slug = "more"
 +++
 
-<div class="avatar left">
-    <img src="/img/avatar.jpg" alt="avatar">
-</div>
+{{<figure class="avatar left" src="/img/avatar.jpg" alt="avatar">}}
+
 I am 24 years old and I am passionate about computing in the broad sense: dev, web technos, hardware, Linux, IoT,...
 
 After two years of work experience in Business Intelligence within the [Fleury Michon](https://www.fleurymichon.fr/) group, I decided to take charge of my professional project and direct it towards web development, my first passion.  

@@ -1,6 +1,15 @@
 module Main exposing (main)
 
-import Html exposing (h1, text)
+import Html exposing (a, div, header, span, text)
+import Html.Attributes exposing (href)
+
 
 main =
-  h1 [] [ text "Hello, Elm!" ]
+    header []
+        [ div [] [ text "Sylvain DENYSE - Web developer designer" ]
+        , div []
+            [ a [ href "#" ] [ text "More information" ]
+            , span [] [ text "|" ]
+            , a [ href "#" ] [ text "Français" ]
+            ]
+        ]

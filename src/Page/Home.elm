@@ -11,8 +11,8 @@ home : Model -> Element msg
 home model =
     column [ Region.mainContent, width fill, spacing 25 ]
         [ avatar model.images.avatar
-        , column [ width fill, spacing 15 ]
-            [ el [ Region.heading 1, centerX ] <| text "Sylvain DENYSE"
-            , el [ Region.heading 2, centerX ] <| text "Full Stack, DevOps and Magician"
+        , column [ width fill, spacing 15, Font.semiBold ]
+            [ el [ Region.heading 1, centerX, Font.size 30 ] <| text "Sylvain DENYSE"
+            , el [ Region.heading 2, centerX, Font.size 20 ] <| text "Full Stack, DevOps and Magician"
             ]
         ]

@@ -1,16 +1,10 @@
-module Main exposing (Model, Msg(..), init, main, subscriptions, update, view, viewLink)
+module Main exposing (Msg(..), init, main, subscriptions, update, view)
 
 import Browser
-import Browser.Dom exposing (Element)
 import Browser.Navigation as Nav
-import Element exposing (Element, Length, alignBottom, alignLeft, alignRight, centerX, clip, column, el, fill, height, image, layout, link, px, row, spaceEvenly, spacing, text, width)
-import Element.Background as Background
-import Element.Border as Border
-import Element.Font as Font
-import Element.Region as Region
-import Html
-import Html.Attributes
-import Maybe exposing (Maybe(..))
+import Model exposing (Images, Model)
+import Page.Home exposing (home)
+import Partial.Layout exposing (layout)
 import Url
 
 
@@ -28,22 +22,6 @@ main =
         , onUrlChange = UrlChanged
         , onUrlRequest = LinkClicked
         }
-
-
-
--- MODEL
-
-
-type alias Model =
-    { key : Nav.Key
-    , url : Url.Url
-    , images : Images
-    }
-
-
-type alias Images =
-    { avatar : String
-    }
 
 
 init : Images -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
@@ -94,78 +72,6 @@ view : Model -> Browser.Document Msg
 view model =
     { title = "Sylvain DENYSE - Web Developer Designer"
     , body =
-        [ layout
-            [ width fill
-            , height fill
-            , Font.family
-                [ Font.typeface "Inter"
-                , Font.sansSerif
-                ]
-            ]
-          <|
-            column [ width <| px 900, height fill, spaceEvenly, centerX ]
-                [ header
-                , content model
-                , footer
-                ]
+        [ layout <| home model
         ]
     }
-
-
-content : Model -> Element msg
-content model =
-    column [ Region.mainContent, width fill, spacing 25 ]
-        [ avatar model.images.avatar
-        , column [ width fill, spacing 15 ]
-            [ el [ Region.heading 1, centerX ] <| text "Sylvain DENYSE"
-            , el [ Region.heading 2, centerX ] <| text "Full Stack, DevOps and Magician"
-            ]
-        ]
-
-
-avatar : String -> Element msg
-avatar url =
-    image
-        [ width <| px 200
-        , height <| px 200
-        , centerX
-        , Border.rounded 100
-        , clip
-        ]
-        { src = url, description = "Picture of me" }
-
-
-header : Element msg
-header =
-    row [ width fill, height <| px 60 ]
-        [ link [] { url = "/", label = text "Sylvain DENYSE - Web Developer Designer" }
-        , navigation
-        ]
-
-
-navigation : Element msg
-navigation =
-    row [ Region.navigation, alignRight, spacing 20 ]
-        [ link []
-            { url = "/about"
-            , label = text "More information"
-            }
-        , text "|"
-        , link []
-            { url = "#"
-            , label = text "Français"
-            }
-        ]
-
-
-footer : Element msg
-footer =
-    column [ Region.footer, width fill, spacing 20 ]
-        [ el [ centerX ] <| text "Innovating with respect."
-        , el [ centerX ] <| text "© 2020"
-        ]
-
-
-viewLink : String -> Html.Html msg
-viewLink path =
-    Html.li [] [ Html.a [ Html.Attributes.href path ] [ Html.text path ] ]

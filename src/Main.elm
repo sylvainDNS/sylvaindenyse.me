@@ -1,9 +1,15 @@
 module Main exposing (Model, Msg(..), init, main, subscriptions, update, view, viewLink)
 
 import Browser
+import Browser.Dom exposing (Element)
 import Browser.Navigation as Nav
-import Html exposing (Html, a, div, footer, h1, h2, header, img, li, span, text)
-import Html.Attributes exposing (href, src)
+import Element exposing (Element, Length, alignBottom, alignLeft, alignRight, centerX, clip, column, el, fill, height, image, layout, link, px, row, spaceEvenly, spacing, text, width)
+import Element.Background as Background
+import Element.Border as Border
+import Element.Font as Font
+import Element.Region as Region
+import Html
+import Html.Attributes
 import Maybe exposing (Maybe(..))
 import Url
 
@@ -88,30 +94,78 @@ view : Model -> Browser.Document Msg
 view model =
     { title = "Sylvain DENYSE - Web Developer Designer"
     , body =
-        [ header []
-            [ div [] [ text "Sylvain DENYSE - Web developer designer" ]
-            , div []
-                [ a [ href "#" ] [ text "More information" ]
-                , span [] [ text "|" ]
-                , a [ href "#" ] [ text "Français" ]
+        [ layout
+            [ width fill
+            , height fill
+            , Font.family
+                [ Font.typeface "Inter"
+                , Font.sansSerif
                 ]
             ]
-        , div []
-            [ img [ src model.images.avatar ] []
-            , div []
-                [ h1 [] [ text "Sylvain DENYSE" ]
-                , h2 [] [ text "Full Stack, DevOps and Magician" ]
+          <|
+            column [ width <| px 900, height fill, spaceEvenly, centerX ]
+                [ header
+                , content model
+                , footer
                 ]
-            , div [] []
-            ]
-        , footer []
-            [ div [] [ text "Innovating with respect" ]
-            , div [] [ text "© 2020" ]
-            ]
         ]
     }
 
 
-viewLink : String -> Html msg
+content : Model -> Element msg
+content model =
+    column [ Region.mainContent, width fill, spacing 25 ]
+        [ avatar model.images.avatar
+        , column [ width fill, spacing 15 ]
+            [ el [ Region.heading 1, centerX ] <| text "Sylvain DENYSE"
+            , el [ Region.heading 2, centerX ] <| text "Full Stack, DevOps and Magician"
+            ]
+        ]
+
+
+avatar : String -> Element msg
+avatar url =
+    image
+        [ width <| px 200
+        , height <| px 200
+        , centerX
+        , Border.rounded 100
+        , clip
+        ]
+        { src = url, description = "Picture of me" }
+
+
+header : Element msg
+header =
+    row [ width fill, height <| px 60 ]
+        [ link [] { url = "/", label = text "Sylvain DENYSE - Web Developer Designer" }
+        , navigation
+        ]
+
+
+navigation : Element msg
+navigation =
+    row [ Region.navigation, alignRight, spacing 20 ]
+        [ link []
+            { url = "/about"
+            , label = text "More information"
+            }
+        , text "|"
+        , link []
+            { url = "#"
+            , label = text "Français"
+            }
+        ]
+
+
+footer : Element msg
+footer =
+    column [ Region.footer, width fill, spacing 20 ]
+        [ el [ centerX ] <| text "Innovating with respect."
+        , el [ centerX ] <| text "© 2020"
+        ]
+
+
+viewLink : String -> Html.Html msg
 viewLink path =
-    li [] [ a [ href path ] [ text path ] ]
+    Html.li [] [ Html.a [ Html.Attributes.href path ] [ Html.text path ] ]

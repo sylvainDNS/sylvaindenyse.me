@@ -13,8 +13,15 @@ title =
 
 router : Model -> ( Title, Element msg )
 router model =
-    case model.url.path of
-        "/more" ->
+    let
+        segments =
+            String.split "/" model.url.path |> List.filter (\s -> s /= "")
+    in
+    case segments of
+        [] ->
+            ( title, home model )
+
+        [ "more" ] ->
             ( title, more )
 
         _ ->

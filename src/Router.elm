@@ -4,6 +4,7 @@ import Element exposing (Element)
 import Model exposing (Model, Title)
 import Page.Home exposing (home)
 import Page.More exposing (more)
+import Page.NotFound exposing (notFound)
 
 
 title : Title
@@ -25,4 +26,4 @@ router model =
             ( title, more )
 
         _ ->
-            ( title, home model )
+            ( title, notFound )

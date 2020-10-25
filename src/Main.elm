@@ -3,8 +3,9 @@ module Main exposing (Msg(..), init, main, subscriptions, update, view)
 import Browser
 import Browser.Navigation as Nav
 import Model exposing (Images, Model)
-import Page.Home exposing (home)
+import Partial.Document exposing (document)
 import Partial.Layout exposing (layout)
+import Router exposing (router)
 import Url
 
 
@@ -70,8 +71,4 @@ subscriptions _ =
 
 view : Model -> Browser.Document Msg
 view model =
-    { title = "Sylvain DENYSE - Web Developer Designer"
-    , body =
-        [ layout <| home model
-        ]
-    }
+    document <| router model

@@ -17,7 +17,7 @@ navigation : Element msg
 navigation =
     row [ Region.navigation, alignRight, spacing 20 ]
         [ link []
-            { url = "/about"
+            { url = "/more"
             , label = text "More information"
             }
         , text "|"

@@ -1,4 +1,4 @@
-module Model exposing (Images, Model)
+module Model exposing (Images, Model, Title)
 
 import Browser.Navigation as Nav
 import Url
@@ -14,3 +14,7 @@ type alias Model =
 type alias Images =
     { avatar : String
     }
+
+
+type alias Title =
+    String

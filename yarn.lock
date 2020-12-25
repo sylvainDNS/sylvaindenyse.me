@@ -1123,6 +1123,16 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@fontsource/lato@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/lato/-/lato-4.0.1.tgz#277283aa199e5036f0f1b4dbdc68c5f9a35143be"
+  integrity sha512-X+FvQftbQUVCTpJE4DYcOm0UD+TavnDhBwWtnWeyObUH5xoRPr/b2uYKvvJMfpJ0Bhae2hGyOvQ83WlCLuFztQ==
+
+"@fontsource/merriweather@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/merriweather/-/merriweather-4.0.1.tgz#d99914e34fe1c9047615b763595ccdcd1ff84684"
+  integrity sha512-08fkEi59T5fPFnyst3pJE/fqPuhDI5URsnzDLJ4TZXjNCwIfQ83U5ki/p516vJ/wV+ld9LBMtSXcFbxTH3nx9A==
+
 "@graphql-tools/batch-execute@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@graphql-tools/batch-execute/-/batch-execute-7.0.0.tgz#e79d11bd5b39f29172f6ec2eafa71103c6a6c85b"

@@ -6,6 +6,9 @@ import {
   ThemeProvider as DefaultThemeProvider,
 } from '@emotion/react'
 
+import '@fontsource/lato/700.css'
+import '@fontsource/merriweather/300.css'
+
 const theme = {
   colors: {
     background: '#eff4ff',
@@ -30,6 +33,8 @@ const globalStyles = css`
 
     background-color: ${theme.colors.background};
     color: ${theme.colors.text};
+    font-family: 'Merriweather';
+    font-weight: 300;
   }
 
   a {

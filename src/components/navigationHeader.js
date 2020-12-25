@@ -22,6 +22,7 @@ const Navigation = styled.nav`
   margin: 0 auto;
   padding: 0 20px;
 
+  font-family: 'Lato';
   font-weight: 700;
 `
 

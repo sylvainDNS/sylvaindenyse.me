@@ -1,5 +1,3 @@
 module.exports = {
-    plugins: [
-
-    ]
+  plugins: ['gatsby-plugin-eslint'],
 }

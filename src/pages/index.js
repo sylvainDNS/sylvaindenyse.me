@@ -1,10 +1,10 @@
-import * as React from "react"
+import * as React from 'react'
 
 // styles
 const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  color: '#232129',
+  padding: '96px',
+  fontFamily: '-apple-system, Roboto, sans-serif, serif',
 }
 const headingStyles = {
   marginTop: 0,
@@ -12,57 +12,57 @@ const headingStyles = {
   maxWidth: 320,
 }
 const headingAccentStyles = {
-  color: "#663399",
+  color: '#663399',
 }
 const paragraphStyles = {
   marginBottom: 48,
 }
 const codeStyles = {
-  color: "#8A6534",
+  color: '#8A6534',
   padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
+  backgroundColor: '#FFF4DB',
+  fontSize: '1.25rem',
   borderRadius: 4,
 }
 const listStyles = {
   marginBottom: 96,
   paddingLeft: 0,
-  listStyleType: "none",
+  listStyleType: 'none',
 }
 const listItemStyles = {
   marginBottom: 12,
-  fontWeight: "300",
+  fontWeight: '300',
   letterSpacing: 1,
 }
 const linkStyles = {
-  color: "#8954A8",
+  color: '#8954A8',
 }
 
 // data
 const links = [
   {
-    text: "Documentation",
-    url: "https://www.gatsbyjs.com/docs/",
+    text: 'Documentation',
+    url: 'https://www.gatsbyjs.com/docs/',
   },
   {
-    text: "Tutorials",
-    url: "https://www.gatsbyjs.com/tutorial/",
+    text: 'Tutorials',
+    url: 'https://www.gatsbyjs.com/tutorial/',
   },
   {
-    text: "Guides",
-    url: "https://www.gatsbyjs.com/tutorial/",
+    text: 'Guides',
+    url: 'https://www.gatsbyjs.com/tutorial/',
   },
   {
-    text: "API Reference",
-    url: "https://www.gatsbyjs.com/docs/api-reference/",
+    text: 'API Reference',
+    url: 'https://www.gatsbyjs.com/docs/api-reference/',
   },
   {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
+    text: 'Plugin Library',
+    url: 'https://www.gatsbyjs.com/plugins',
   },
   {
-    text: "Cheat Sheet",
-    url: "https://www.gatsbyjs.com/docs/cheat-sheet/",
+    text: 'Cheat Sheet',
+    url: 'https://www.gatsbyjs.com/docs/cheat-sheet/',
   },
 ]
 
@@ -81,14 +81,14 @@ const IndexPage = () => {
       </h1>
       <p style={paragraphStyles}>
         Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time.{" "}
+        update in real-time.{' '}
         <span role="img" aria-label="Sunglasses smiley emoji">
           😎
         </span>
       </p>
       <ul style={listStyles}>
-        {links.map(link => (
-          <li style={listItemStyles}>
+        {links.map((link, index) => (
+          <li key={`link-list-${index}`} style={listItemStyles}>
             <a
               style={linkStyles}
               href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}

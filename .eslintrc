@@ -1,0 +1,26 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "no-unused-vars":"warn",
+    "no-trailing-spaces": "error",
+    "prettier/prettier": "error",
+    "react/prop-types": 1,
+    "strict": 0,
+    "spaced-comment": [
+      "error",
+      "always"
+    ]
+  }
+}

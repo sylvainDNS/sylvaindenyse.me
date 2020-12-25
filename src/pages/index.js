@@ -4,11 +4,21 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/react'
 import Layout from '../components/layout'
 import GatsbyImage from 'gatsby-image'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faGithub,
+  faGitlab,
+  faTwitter,
+  faLinkedin,
+} from '@fortawesome/free-brands-svg-icons'
 
 const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+
+  width: 100%;
 
   font-family: Lato;
   font-weight: 700;
@@ -47,12 +57,65 @@ const Avatar = () => {
   )
 }
 
+const LinkList = styled.ul`
+  list-style: none;
+  margin: 32px 0 10px;
+  padding: 0;
+
+  font-size: 32px;
+`
+
+const LinkListItem = styled.li`
+  display: inline;
+  margin: 0 10px;
+
+  a {
+    transition: 1s ease color;
+    &:hover {
+      color: ${({ color }) => color};
+      transition: none;
+    }
+  }
+`
+
+const links = [
+  {
+    to: 'https://github.com/sylvaindns/',
+    icon: faGithub,
+    color: '#6f42c1',
+  },
+  {
+    to: 'https://gitlab.com//sylvainDNS/',
+    icon: faGitlab,
+    color: '#fa7035',
+  },
+  {
+    to: 'https://twitter.com/sylvaindenyse/',
+    icon: faTwitter,
+    color: '#1da1f2',
+  },
+  {
+    to: 'https://www.linkedin.com/in/sylvain-denyse/',
+    icon: faLinkedin,
+    color: '#2977c9',
+  },
+]
+
 const Home = () => (
   <Layout>
     <Content>
       <Avatar />
       <Title>Sylvain DENYSE</Title>
       <SubTitle>Full Stack, DevOps, and Magician</SubTitle>
+      <LinkList>
+        {links.map(({ to, icon, color }, index) => (
+          <LinkListItem key={`index-page-links-list-${index}`} color={color}>
+            <a href={to}>
+              <FontAwesomeIcon icon={icon} />
+            </a>
+          </LinkListItem>
+        ))}
+      </LinkList>
     </Content>
   </Layout>
 )

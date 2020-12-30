@@ -1,5 +1,10 @@
 module.exports = {
   siteMetadata: {
+    title: 'Sylvain DENYSE',
+    titleTemplate: '%s · Sylvain DENYSE',
+    description: 'Personal website of a web developer.',
+    image: '/images/avatar.jpg',
+    twitterUsername: '@sylvaindenyse',
     siteUrl: `https://sylvaindenyse.me`,
   },
   plugins: [
@@ -23,6 +28,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-mdx',
+    'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',
   ],

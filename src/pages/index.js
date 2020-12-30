@@ -8,6 +8,7 @@ import {
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
 import Avatar from '../components/avatar'
+import SEO from '../components/seo'
 
 const Wrapper = styled.div`
   display: flex;
@@ -79,6 +80,7 @@ const links = [
 
 const Home = () => (
   <Wrapper>
+    <SEO title="Welcome!" />
     <Avatar />
     <Title>Sylvain DENYSE</Title>
     <SubTitle>Full Stack, DevOps, and Magician</SubTitle>

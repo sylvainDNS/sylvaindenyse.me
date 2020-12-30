@@ -25,18 +25,6 @@ const globalStyles = css`
     padding: 0;
   }
 
-  #gatsby-focus-wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    width: 100%;
-
-    background-color: ${theme.colors.background};
-    color: ${theme.colors.text};
-    font-family: 'Merriweather';
-    font-weight: 300;
-  }
-
   a {
     color: ${theme.colors.link};
     text-decoration: none;
@@ -45,6 +33,23 @@ const globalStyles = css`
       color: ${theme.colors.linkHover};
       text-decoration: underline;
     }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'lato';
+    font-weight: 700;
+  }
+
+  #gatsby-focus-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
   }
 `
 

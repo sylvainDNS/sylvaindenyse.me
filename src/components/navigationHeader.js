@@ -4,13 +4,12 @@ import { css, useTheme } from '@emotion/react'
 import { Link } from 'gatsby'
 
 const Header = styled.header`
-  position: sticky;
-  top: 0;
   display: flex;
-
   align-items: center;
   justify-content: center;
+
   min-height: 60px;
+  width: 100%;
 
   background-color: ${({ theme }) => theme.colors.background};
 `
@@ -31,22 +30,32 @@ const Container = styled.section`
   max-width: 900px;
 `
 
-const NavigationHeader = () => {
+const NoWrap = styled.span`
+  white-space: nowrap;
+`
+
+const NavigationHeader = props => {
   const theme = useTheme()
 
   return (
-    <Header theme={theme}>
+    <Header theme={theme} {...props}>
       <Container>
         <Navigation>
           <Link
             css={css`
               text-transform: uppercase;
+              margin-right: 32px;
+              letter-spacing: 1px;
             `}
             to="/"
           >
-            Sylvain DENYSE - Web Developer Designer
+            <NoWrap>Sylvain DENYSE</NoWrap>
+            {' - '}
+            <NoWrap>Web Developer Designer</NoWrap>
           </Link>
-          <Link to="/resume">About me</Link>
+          <Link to="/resume">
+            <NoWrap>About me</NoWrap>
+          </Link>
         </Navigation>
       </Container>
     </Header>

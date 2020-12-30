@@ -2,7 +2,6 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
 import { css } from '@emotion/react'
-import Layout from '../components/layout'
 import GatsbyImage from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -12,24 +11,20 @@ import {
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
 
-const Content = styled.div`
+const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 
-  width: 100%;
-
-  font-family: Lato;
-  font-weight: 700;
+  text-align: center;
 `
 
 const Title = styled.h1`
-  font-size: 32px;
   margin: 20px 0 5px;
 `
 const SubTitle = styled.h2`
-  font-size: 24px;
   margin: 10px 0 5px;
 `
 
@@ -102,22 +97,20 @@ const links = [
 ]
 
 const Home = () => (
-  <Layout>
-    <Content>
-      <Avatar />
-      <Title>Sylvain DENYSE</Title>
-      <SubTitle>Full Stack, DevOps, and Magician</SubTitle>
-      <LinkList>
-        {links.map(({ to, icon, color }, index) => (
-          <LinkListItem key={`index-page-links-list-${index}`} color={color}>
-            <a href={to}>
-              <FontAwesomeIcon icon={icon} />
-            </a>
-          </LinkListItem>
-        ))}
-      </LinkList>
-    </Content>
-  </Layout>
+  <Wrapper>
+    <Avatar />
+    <Title>Sylvain DENYSE</Title>
+    <SubTitle>Full Stack, DevOps, and Magician</SubTitle>
+    <LinkList>
+      {links.map(({ to, icon, color }, index) => (
+        <LinkListItem key={`index-page-links-list-${index}`} color={color}>
+          <a href={to}>
+            <FontAwesomeIcon icon={icon} />
+          </a>
+        </LinkListItem>
+      ))}
+    </LinkList>
+  </Wrapper>
 )
 
 export default Home

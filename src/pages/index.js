@@ -66,7 +66,9 @@ const LinkListItem = styled.li`
 
   a {
     transition: 1s ease color;
-    &:hover {
+
+    &:hover,
+    &:focus {
       color: ${({ color }) => color};
       transition: none;
     }
@@ -78,21 +80,25 @@ const links = [
     to: 'https://github.com/sylvaindns/',
     icon: faGithub,
     color: '#6f42c1',
+    title: 'GitHub',
   },
   {
     to: 'https://gitlab.com//sylvainDNS/',
     icon: faGitlab,
     color: '#fa7035',
+    title: 'GitLab',
   },
   {
     to: 'https://twitter.com/sylvaindenyse/',
     icon: faTwitter,
     color: '#1da1f2',
+    title: 'Twitter',
   },
   {
     to: 'https://www.linkedin.com/in/sylvain-denyse/',
     icon: faLinkedin,
     color: '#2977c9',
+    title: 'LinkedIn',
   },
 ]
 
@@ -102,9 +108,9 @@ const Home = () => (
     <Title>Sylvain DENYSE</Title>
     <SubTitle>Full Stack, DevOps, and Magician</SubTitle>
     <LinkList>
-      {links.map(({ to, icon, color }, index) => (
+      {links.map(({ to, icon, color, title }, index) => (
         <LinkListItem key={`index-page-links-list-${index}`} color={color}>
-          <a href={to}>
+          <a href={to} title={title} target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={icon} />
           </a>
         </LinkListItem>

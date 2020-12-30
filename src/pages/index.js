@@ -1,8 +1,5 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
-import GatsbyImage from 'gatsby-image'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faGithub,
@@ -10,6 +7,7 @@ import {
   faTwitter,
   faLinkedin,
 } from '@fortawesome/free-brands-svg-icons'
+import Avatar from '../components/avatar'
 
 const Wrapper = styled.div`
   display: flex;
@@ -28,30 +26,6 @@ const SubTitle = styled.h2`
   margin: 10px 0 5px;
 `
 
-const Avatar = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "avatar.jpg" }) {
-        childImageSharp {
-          fixed(width: 200, height: 200) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
-
-  return (
-    <GatsbyImage
-      css={css`
-        border-radius: 50%;
-      `}
-      fixed={data.file.childImageSharp.fixed}
-      alt="A picture of me"
-    />
-  )
-}
-
 const LinkList = styled.ul`
   list-style: none;
   margin: 32px 0 10px;
@@ -66,10 +40,11 @@ const LinkListItem = styled.li`
 
   a {
     transition: 1s ease color;
+    color: ${({ theme }) => theme.colors.text};
 
     &:hover,
     &:focus {
-      color: ${({ color }) => color};
+      color: ${({ hoverColor }) => hoverColor};
       transition: none;
     }
   }
@@ -109,7 +84,7 @@ const Home = () => (
     <SubTitle>Full Stack, DevOps, and Magician</SubTitle>
     <LinkList>
       {links.map(({ to, icon, color, title }, index) => (
-        <LinkListItem key={`index-page-links-list-${index}`} color={color}>
+        <LinkListItem key={`index-page-links-list-${index}`} hoverColor={color}>
           <a href={to} title={title} target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={icon} />
           </a>

@@ -8,13 +8,14 @@ import {
 
 import '@fontsource/lato/700.css'
 import '@fontsource/merriweather/300.css'
+import '@fontsource/merriweather/700.css'
 
 const theme = {
   colors: {
     background: '#eff4ff',
     text: '#1d1d1d',
-    link: '#1d1d1d',
-    linkHover: '#2d89ef',
+    link: '#2b5797',
+    linkHover: '#2b5797',
   },
 }
 
@@ -43,6 +44,32 @@ const globalStyles = css`
   h6 {
     font-family: 'lato';
     font-weight: 700;
+  }
+
+  b,
+  strong {
+    font-weight: 700;
+  }
+
+  article {
+    h1 {
+      font-size: 42px;
+    }
+    h2 {
+      font-size: 32px;
+    }
+    h3 {
+      font-size: 24px;
+    }
+    h4 {
+      font-size: 22px;
+    }
+  }
+
+  *,
+  ::before,
+  ::after {
+    line-height: 1.6;
   }
 
   #gatsby-focus-wrapper {

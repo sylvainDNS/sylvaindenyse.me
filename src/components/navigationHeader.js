@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { css, useTheme } from '@emotion/react'
+import { css } from '@emotion/react'
 import { Link } from 'gatsby'
 
 const Header = styled.header`
@@ -23,6 +23,10 @@ const Navigation = styled.nav`
 
   font-family: 'Lato';
   font-weight: 700;
+
+  a:not(:hover) {
+    color: ${({ theme }) => theme.colors.text};
+  }
 `
 
 const Container = styled.section`
@@ -34,32 +38,28 @@ const NoWrap = styled.span`
   white-space: nowrap;
 `
 
-const NavigationHeader = props => {
-  const theme = useTheme()
-
-  return (
-    <Header theme={theme} {...props}>
-      <Container>
-        <Navigation>
-          <Link
-            css={css`
-              text-transform: uppercase;
-              margin-right: 32px;
-              letter-spacing: 1px;
-            `}
-            to="/"
-          >
-            <NoWrap>Sylvain DENYSE</NoWrap>
-            {' - '}
-            <NoWrap>Web Developer Designer</NoWrap>
-          </Link>
-          <Link to="/resume">
-            <NoWrap>About me</NoWrap>
-          </Link>
-        </Navigation>
-      </Container>
-    </Header>
-  )
-}
+const NavigationHeader = props => (
+  <Header {...props}>
+    <Container>
+      <Navigation>
+        <Link
+          css={css`
+            text-transform: uppercase;
+            margin-right: 32px;
+            letter-spacing: 1px;
+          `}
+          to="/"
+        >
+          <NoWrap>Sylvain DENYSE</NoWrap>
+          {' - '}
+          <NoWrap>Web Developer Designer</NoWrap>
+        </Link>
+        <Link to="/resume">
+          <NoWrap>About me</NoWrap>
+        </Link>
+      </Navigation>
+    </Container>
+  </Header>
+)
 
 export default NavigationHeader

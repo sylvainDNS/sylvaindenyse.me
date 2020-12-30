@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css, useTheme } from '@emotion/react'
+import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import NavigationHeader from './navigationHeader'
 
@@ -29,28 +29,28 @@ const ContentWrapper = styled.main`
 const Footer = styled.footer`
   margin-top: auto;
   text-align: center;
+
+  p:last-of-type {
+    margin-bottom: 4px;
+  }
 `
 
-const Layout = ({ children }) => {
-  const theme = useTheme()
-
-  return (
-    <MainWrapper theme={theme}>
-      <NavigationHeader
-        css={css`
-          position: sticky;
-          top: 0;
-          z-index: 1000;
-        `}
-      />
-      <ContentWrapper>{children}</ContentWrapper>
-      <Footer>
-        <p>Innovating with respect.</p>
-        <p>© 2020</p>
-      </Footer>
-    </MainWrapper>
-  )
-}
+const Layout = ({ children }) => (
+  <MainWrapper>
+    <NavigationHeader
+      css={css`
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      `}
+    />
+    <ContentWrapper>{children}</ContentWrapper>
+    <Footer>
+      <p>Innovating with respect.</p>
+      <p>© 2020</p>
+    </Footer>
+  </MainWrapper>
+)
 
 Layout.propTypes = {
   children: PropTypes.node,

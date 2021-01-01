@@ -1,0 +1,59 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  buildAndPublish:
+    runs-on: [ubuntu-latest]
+
+    steps:
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          persist-credentials: false
+
+      - name: Remove all files
+        run : |
+          rm -rf *
+
+      - name: Create CNAME file
+        run: |
+          echo ${{ secrets.DOMAIN_NAME }} > CNAME
+
+      - name: Checkout master branch
+        uses: actions/checkout@v2
+        with:
+          ref: master
+          path: temp
+          persist-credentials: false
+
+      - name: Run yarn install and build
+        run: |
+          cd temp
+          yarn install
+          yarn build
+      
+      - name: Move
+        if: ${{ success() }}
+        run: |
+          mv temp/public/* ./
+          rm -rf temp
+
+      - name: Commit built files
+        if: ${{ success() }}
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action CI"
+          git add .
+          git commit -m "Add changes"
+      
+      - name: Push changes
+        if: ${{ success() }}
+        uses: ad-m/github-push-action@master
+        with:
+          BRANCH: gh-page
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          force: true

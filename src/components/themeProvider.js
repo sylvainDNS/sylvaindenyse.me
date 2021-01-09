@@ -16,6 +16,7 @@ const theme = {
     text: '#1d1d1d',
     link: '#2b5797',
     linkHover: '#2b5797',
+    shadow: 'rgba(29, 29, 29, 0.3)',
   },
 }
 

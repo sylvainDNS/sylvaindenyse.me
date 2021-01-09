@@ -1,11 +1,23 @@
-+++
-title = "More information"
-slug = "more"
-+++
+import Avatar from '../components/avatar'
+import SEO from '../components/seo'
+import styled from '@emotion/react'
+import { css } from '@emotion/react'
 
-{{<figure class="avatar left" src="/img/avatar.jpg" alt="avatar">}}
+<SEO title="Resume" />
 
-I am 24 years old and I am passionate about computing in the broad sense: dev, web technos, hardware, Linux, IoT,...
+<article>
+
+<h1>Resume</h1>
+
+<Avatar
+  css={css`
+    float: left;
+    margin: 0 15px 15px 0;
+  `}
+/>
+
+I am 24 years old and I am passionate about computing in the broad sense:
+dev, web technos, hardware, Linux, IoT,...
 
 After two years of work experience in Business Intelligence within the [Fleury Michon](https://www.fleurymichon.fr/) group, I decided to take charge of my professional project and direct it towards web development, my first passion.  
 I am actually working in [Pepperbay](https://www.pepperbay.fr/), a web development agency, after a work-study program accomplished in this company.
@@ -66,3 +78,5 @@ Participation in a major live show telling the history of the region.
 
 **Video Jockey - Asia Project Association**: 2013  
 Live video design and mix to illustrate DJ mixes.
+
+</article>

@@ -54,6 +54,6 @@ jobs:
         if: ${{ success() }}
         uses: ad-m/github-push-action@master
         with:
-          BRANCH: gh-page
+          BRANCH: gh-pages
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true

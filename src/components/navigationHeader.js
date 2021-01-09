@@ -71,7 +71,7 @@ const NavigationHeader = props => {
 }
 
 const useHasScrolled = () => {
-  const [hasScrolled, setHasScrolled] = useState(window.scrollY > 0)
+  const [hasScrolled, setHasScrolled] = useState(false)
 
   const onScroll = () => setHasScrolled(window.scrollY > 0)
 

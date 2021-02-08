@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{w2l6:function(e,t,n){"use strict";n.r(t);var l=n("DZdY"),s=(n("q1tI"),n("AeFk"));var i=Object(l.a)("div",{target:"e1s5p4zs0",label:"Wrapper"})({name:"7eer2p",styles:"display:flex;flex-direction:column;align-items:center;justify-content:center;flex-grow:1;text-align:center"});t.default=function(){return Object(s.c)(i,null,Object(s.c)("h1",null,"404"),"Oops, seems like the page doesn't exist or the link is broken.")}}}]);
+//# sourceMappingURL=component---src-pages-404-js-835ba542215a07416de2.js.map

@@ -7,6 +7,7 @@ import {
 } from '@emotion/react'
 
 import '@fontsource/lato/700.css'
+import '@fontsource/lato/400.css'
 import '@fontsource/merriweather/300.css'
 import '@fontsource/merriweather/700.css'
 
@@ -65,6 +66,10 @@ const globalStyles = css`
     h4 {
       font-size: 22px;
     }
+  }
+
+  button {
+    cursor: pointer;
   }
 
   *,

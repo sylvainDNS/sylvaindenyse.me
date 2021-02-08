@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import Avatar from '../components/avatar'
 import SEO from '../components/seo'
+import Quote from '../components/quote'
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,13 +24,10 @@ const Wrapper = styled.div`
 const Title = styled.h1`
   margin: 20px 0 5px;
 `
-const SubTitle = styled.h2`
-  margin: 10px 0 5px;
-`
 
 const LinkList = styled.ul`
   list-style: none;
-  margin: 32px 0 10px;
+  margin: 20px 0 10px;
   padding: 0;
 
   font-size: 32px;
@@ -83,7 +81,7 @@ const Home = () => (
     <SEO title="Welcome!" />
     <Avatar />
     <Title>Sylvain DENYSE</Title>
-    <SubTitle>Full Stack, DevOps, and Magician</SubTitle>
+    <Quote />
     <LinkList>
       {links.map(({ to, icon, color, title }, index) => (
         <LinkListItem key={`index-page-links-list-${index}`} hoverColor={color}>

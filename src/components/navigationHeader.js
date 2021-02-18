@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
-import { css } from '@emotion/react'
 import { Link } from 'gatsby'
 
 const Header = styled.header`
@@ -16,30 +15,32 @@ const Header = styled.header`
   transition: ease 100ms box-shadow;
   box-shadow: 0 3px 5px
     ${({ shadow, theme }) => (shadow ? theme.colors.shadow : 'transparent')};
-`
 
-const Navigation = styled.nav`
-  display: flex;
-  justify-content: space-between;
-
-  margin: 0 auto;
-  padding: 0 20px;
-
-  font-family: 'Lato';
-  font-weight: 700;
-
-  a:not(:hover) {
-    color: ${({ theme }) => theme.colors.text};
+  .container {
+    width: 100%;
+    max-width: 900px;
   }
-`
 
-const Container = styled.section`
-  width: 100%;
-  max-width: 900px;
-`
+  .navigation {
+    display: flex;
+    justify-content: space-between;
 
-const NoWrap = styled.span`
-  white-space: nowrap;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    font-family: 'Lato';
+    font-weight: 700;
+
+    a:not(:hover) {
+      color: ${({ theme }) => theme.colors.text};
+    }
+
+    .title {
+      text-transform: uppercase;
+      margin-right: 32px;
+      letter-spacing: 1px;
+    }
+  }
 `
 
 const NavigationHeader = props => {
@@ -47,25 +48,18 @@ const NavigationHeader = props => {
 
   return (
     <Header {...props} shadow={hasScrolled}>
-      <Container>
-        <Navigation>
-          <Link
-            css={css`
-              text-transform: uppercase;
-              margin-right: 32px;
-              letter-spacing: 1px;
-            `}
-            to="/"
-          >
-            <NoWrap>Sylvain DENYSE</NoWrap>
+      <section className="container">
+        <nav className="navigation">
+          <Link className="title" to="/">
+            <span className="nav-link">Sylvain DENYSE</span>
             {' - '}
-            <NoWrap>Web Developer Designer</NoWrap>
+            <span className="nav-link">Web Developer Designer</span>
           </Link>
           <Link to="/resume">
-            <NoWrap>About me</NoWrap>
+            <span className="nav-link">About me</span>
           </Link>
-        </Navigation>
-      </Container>
+        </nav>
+      </section>
     </Header>
   )
 }

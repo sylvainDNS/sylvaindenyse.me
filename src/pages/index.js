@@ -18,24 +18,25 @@ const Wrapper = styled.div`
   flex-grow: 1;
 
   text-align: center;
+
+  h1 {
+    margin: 20px 0 5px;
+  }
+
+  h2 {
+    margin: 10px 0 5px;
+  }
+
+  .link-list {
+    list-style: none;
+    margin: 32px 0 10px;
+    padding: 0;
+
+    font-size: 32px;
+  }
 `
 
-const Title = styled.h1`
-  margin: 20px 0 5px;
-`
-const SubTitle = styled.h2`
-  margin: 10px 0 5px;
-`
-
-const LinkList = styled.ul`
-  list-style: none;
-  margin: 32px 0 10px;
-  padding: 0;
-
-  font-size: 32px;
-`
-
-const LinkListItem = styled.li`
+const Item = styled.li`
   display: inline;
   margin: 0 10px;
 
@@ -82,17 +83,17 @@ const Home = () => (
   <Wrapper>
     <SEO title="Welcome!" />
     <Avatar />
-    <Title>Sylvain DENYSE</Title>
-    <SubTitle>Full Stack, DevOps, and Magician</SubTitle>
-    <LinkList>
+    <h1>Sylvain DENYSE</h1>
+    <h2>Full Stack, DevOps, and Magician</h2>
+    <ul className="link-list">
       {links.map(({ to, icon, color, title }, index) => (
-        <LinkListItem key={`index-page-links-list-${index}`} hoverColor={color}>
+        <Item key={`index-page-links-list-${index}`} hoverColor={color}>
           <a href={to} title={title} target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={icon} />
           </a>
-        </LinkListItem>
+        </Item>
       ))}
-    </LinkList>
+    </ul>
   </Wrapper>
 )
 

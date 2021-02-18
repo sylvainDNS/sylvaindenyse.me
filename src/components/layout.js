@@ -14,24 +14,24 @@ const MainWrapper = styled.div`
   color: ${({ theme }) => theme.colors.text};
   font-family: 'Merriweather';
   font-weight: 300;
-`
 
-const ContentWrapper = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-grow: 1;
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
 
-  width: min(65ch, calc(100% - 64px));
-  margin: 16px 32px 32px;
-`
+    width: min(65ch, calc(100% - 64px));
+    margin: 16px 32px 32px;
+  }
 
-const Footer = styled.footer`
-  margin-top: auto;
-  text-align: center;
+  footer {
+    margin-top: auto;
+    text-align: center;
 
-  p:last-of-type {
-    margin-bottom: 4px;
+    p:last-of-type {
+      margin-bottom: 4px;
+    }
   }
 `
 
@@ -44,11 +44,11 @@ const Layout = ({ children }) => (
         z-index: 1000;
       `}
     />
-    <ContentWrapper>{children}</ContentWrapper>
-    <Footer>
+    <main className="content">{children}</main>
+    <footer>
       <p>Innovating with respect.</p>
       <p>© 2020</p>
-    </Footer>
+    </footer>
   </MainWrapper>
 )
 

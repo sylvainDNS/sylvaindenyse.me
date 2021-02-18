@@ -50,6 +50,12 @@ const SEO = ({
         <meta name="twitter:description" content={seo.description} />
       )}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
+      <script
+        async
+        defer
+        data-domain="sylvaindenyse.me"
+        src="https://plausible.io/js/plausible.js"
+      ></script>
     </Helmet>
   )
 }

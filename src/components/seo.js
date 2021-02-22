@@ -54,7 +54,7 @@ const SEO = ({
         async
         defer
         data-domain="sylvaindenyse.me"
-        src="https://plausible.io/js/plausible.js"
+        src="https://stats.sylvaindenyse.me/js/index.js"
       ></script>
     </Helmet>
   )

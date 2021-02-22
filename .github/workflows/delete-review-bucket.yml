@@ -1,0 +1,16 @@
+name: Remove S3 bucket
+
+on: 
+  pull_request:
+    types: [closed]
+
+jobs:
+  delete_env:
+    name: Remove the bucket of the PR branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove bucket
+        run: |
+          aws configure set aws_access_key_id ${{ secrets.CELLAR_ADDON_KEY_ID }}
+          aws configure set aws_secret_access_key ${{ secrets.CELLAR_ADDON_KEY_SECRET }}
+          aws s3 rb s3://${{github.head_ref}} --force --endpoint-url ${{ secrets.CELLAR_ADDON_HOST }}

@@ -56,6 +56,12 @@ const SEO = ({
         data-domain="sylvaindenyse.me"
         src="https://stats.sylvaindenyse.me/js/index.js"
       ></script>
+      <script
+        async
+        defer
+        data-domain="sylvaindenyse.me"
+        src="https://stats.sylvaindenyse.me/js/index.outbound-links.js"
+      ></script>
     </Helmet>
   )
 }

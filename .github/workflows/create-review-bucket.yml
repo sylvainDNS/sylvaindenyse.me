@@ -8,10 +8,12 @@ jobs:
   create_env:
     name: Create S3 bucket on Cellar
     runs-on: ubuntu-20.04
+    env:
+      SUB_DOMAIN: ${{ github.head_ref }}-review
     steps:
       - name: Create bucket
         run: |
           aws configure set aws_access_key_id ${{ secrets.CELLAR_ADDON_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.CELLAR_ADDON_KEY_SECRET }}
           aws configure set region ${{ secrets.CELLAR_ADDON_REGION }}
-          aws s3api create-bucket --bucket ${{github.head_ref}} --acl public-read --endpoint-url ${{ secrets.CELLAR_ADDON_HOST }} > /dev/null
+          aws s3api create-bucket --bucket ${{ env.SUB_DOMAIN }}.${{ secrets.DOMAIN_NAME }} --acl public-read --endpoint-url ${{ secrets.CELLAR_ADDON_HOST }} > /dev/null

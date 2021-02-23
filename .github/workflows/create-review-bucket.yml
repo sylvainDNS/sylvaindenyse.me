@@ -31,3 +31,12 @@ jobs:
               "rrset_ttl": 1800
             }' \
             https://api.gandi.net/v5/livedns/domains/${{ secrets.DOMAIN_NAME }}/records
+
+      - name: Comment on PR
+        run: |
+          curl \
+            -X POST \
+            ${{ github.event.pull_request.comments_url }} \
+            -H "Content-Type: application/json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            --data '{ "body": "🚀 Review app deployed on https://${{ env.SUB_DOMAIN }}.${{ secrets.DOMAIN_NAME }}/" }'

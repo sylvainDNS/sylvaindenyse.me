@@ -8,6 +8,8 @@ jobs:
   build:
     name: Build & deploy Gatsby site
     runs-on: ubuntu-20.04
+    env:
+      SUB_DOMAIN: ${{ github.head_ref }}-review
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
@@ -30,9 +32,10 @@ jobs:
       - name: Add robots.txt
         run: |
           echo "User-agent: *\nDisallow: /" > ./public/robots.txt
+
       - name: Deploy on S3 bucket
         run: |
           aws configure set aws_access_key_id ${{secrets.CELLAR_ADDON_KEY_ID}}
           aws configure set aws_secret_access_key ${{secrets.CELLAR_ADDON_KEY_SECRET}}
           aws configure set region ${{ secrets.CELLAR_ADDON_REGION }}
-          aws s3 sync ./public s3://${{github.head_ref}} --endpoint-url ${{ secrets.CELLAR_ADDON_HOST }} --acl public-read
+          aws s3 sync ./public s3://${{ env.SUB_DOMAIN }}.${{ secrets.DOMAIN_NAME }} --endpoint-url https://${{ secrets.CELLAR_ADDON_HOST }} --acl public-read

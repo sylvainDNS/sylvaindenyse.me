@@ -6,12 +6,37 @@ on:
 
 jobs:
   create_env:
-    name: Create S3 bucket on Cellar
+    name: Create S3 bucket on Cellar & DNS record
     runs-on: ubuntu-20.04
+    env:
+      SUB_DOMAIN: ${{ github.head_ref }}-review
     steps:
       - name: Create bucket
         run: |
           aws configure set aws_access_key_id ${{ secrets.CELLAR_ADDON_KEY_ID }}
           aws configure set aws_secret_access_key ${{ secrets.CELLAR_ADDON_KEY_SECRET }}
           aws configure set region ${{ secrets.CELLAR_ADDON_REGION }}
-          aws s3api create-bucket --bucket ${{github.head_ref}} --acl public-read --endpoint-url ${{ secrets.CELLAR_ADDON_HOST }} > /dev/null
+          aws s3api create-bucket --bucket ${{ env.SUB_DOMAIN }}.${{ secrets.DOMAIN_NAME }} --acl public-read --endpoint-url https://${{ secrets.CELLAR_ADDON_HOST }} > /dev/null
+
+      - name: Create DNS record
+        run: |
+          curl \
+            -X POST \
+            -H "Authorization: ApiKey ${{ secrets.GANDI_API_KEY }}" \
+            -H "Content-Type: application/json" \
+            -d '{
+              "rrset_type": "CNAME",
+              "rrset_name": "${{ env.SUB_DOMAIN }}",
+              "rrset_values": ["${{ secrets.CELLAR_ADDON_HOST }}."],
+              "rrset_ttl": 1800
+            }' \
+            https://api.gandi.net/v5/livedns/domains/${{ secrets.DOMAIN_NAME }}/records
+
+      - name: Comment on PR
+        run: |
+          curl \
+            -X POST \
+            ${{ github.event.pull_request.comments_url }} \
+            -H "Content-Type: application/json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            --data '{ "body": "🚀 Review app deployed on https://${{ env.SUB_DOMAIN }}.${{ secrets.DOMAIN_NAME }}/" }'

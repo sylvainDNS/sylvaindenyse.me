@@ -6,14 +6,17 @@ on:
 
 jobs:
   buildAndPublish:
-    runs-on: [ubuntu-latest]
-
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout gh-pages branch
         uses: actions/checkout@v2
         with:
           ref: gh-pages
           persist-credentials: false
+
+      - name: Calculate original checksum
+        id: checksum
+        run: echo "::set-output name=sha1::$(tar -cf - . | sha1sum)"
 
       - name: Remove all files
         run : |
@@ -35,15 +38,25 @@ jobs:
           cd temp
           yarn install
           yarn build
-      
+
+      - name: Compare checksums
+        id: comparison
+        env: 
+          OLD_CHECKSUM: ${{ steps.checksum.outputs.sha1 }}
+        run: |
+          NEW_CHECKSUM=$(tar -cf - public | sha1sum)
+          [[ ! ${{ OLD_CHECKSUM }} == NEW_CHECKSUM ]]
+          HAS_CHANGE=$?
+          echo "::set-output name=hasChange::$HAS_CHANGE"
+
       - name: Move
-        if: ${{ success() }}
+        if: ${{ success() && steps.comparison.outputs.hasChange }}
         run: |
           mv temp/public/* ./
           rm -rf temp
 
       - name: Commit built files
-        if: ${{ success() }}
+        if: ${{ success() && steps.comparison.outputs.hasChange }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action CI"
@@ -51,7 +64,7 @@ jobs:
           git commit -m "Add changes"
       
       - name: Push changes
-        if: ${{ success() }}
+        if: ${{ success() && steps.comparison.outputs.hasChange }}
         uses: ad-m/github-push-action@master
         with:
           BRANCH: gh-pages

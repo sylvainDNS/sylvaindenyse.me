@@ -7,6 +7,7 @@ on:
 jobs:
   buildAndPublish:
     runs-on: ubuntu-20.04
+
     steps:
       - name: Checkout gh-pages branch
         uses: actions/checkout@v2
@@ -14,17 +15,11 @@ jobs:
           ref: gh-pages
           persist-credentials: false
 
-      - name: Calculate original checksum
-        id: checksum
-        run: echo "::set-output name=sha1::$(tar -cf - . | sha1sum)"
-
       - name: Remove all files
-        run : |
-          rm -rf *
+        run: rm -rf *
 
       - name: Create CNAME file
-        run: |
-          echo ${{ secrets.DOMAIN_NAME }} > CNAME
+        run: echo ${{ secrets.DOMAIN_NAME }} > CNAME
 
       - name: Checkout master branch
         uses: actions/checkout@v2
@@ -39,32 +34,27 @@ jobs:
           yarn install
           yarn build
 
-      - name: Compare checksums
-        id: comparison
-        env: 
-          OLD_CHECKSUM: ${{ steps.checksum.outputs.sha1 }}
-        run: |
-          NEW_CHECKSUM=$(tar -cf - public | sha1sum)
-          [[ ! ${{ OLD_CHECKSUM }} == NEW_CHECKSUM ]]
-          HAS_CHANGE=$?
-          echo "::set-output name=hasChange::$HAS_CHANGE"
-
       - name: Move
-        if: ${{ success() && steps.comparison.outputs.hasChange }}
+        if: ${{ success() }}
         run: |
           mv temp/public/* ./
           rm -rf temp
 
+      - name: Check if files changed
+        if: ${{ success() }}
+        id: diff
+        run: git update-index --refresh || echo "::set-output name=hasChanged::true"
+
       - name: Commit built files
-        if: ${{ success() && steps.comparison.outputs.hasChange }}
+        if: ${{ success() && steps.diff.outputs.hasChanged }}
         run: |
+          git add .
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action CI"
-          git add .
           git commit -m "Add changes"
       
       - name: Push changes
-        if: ${{ success() && steps.comparison.outputs.hasChange }}
+        if: ${{ success() && steps.diff.outputs.hasChanged }}
         uses: ad-m/github-push-action@master
         with:
           BRANCH: gh-pages

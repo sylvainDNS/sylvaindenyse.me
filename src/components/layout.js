@@ -9,6 +9,7 @@ const MainWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  margin-left: calc(100vw - 100%);
 
   background-color: ${({ theme }) => theme.colors.background};
   color: ${({ theme }) => theme.colors.text};

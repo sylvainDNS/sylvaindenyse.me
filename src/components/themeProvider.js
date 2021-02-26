@@ -27,6 +27,11 @@ const globalStyles = css`
     padding: 0;
   }
 
+  html {
+    margin-left: calc(100vw - 100%);
+    background-color: ${theme.colors.background};
+  }
+
   a {
     color: ${theme.colors.link};
     text-decoration: none;

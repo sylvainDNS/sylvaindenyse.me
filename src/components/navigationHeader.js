@@ -9,6 +9,8 @@ const Header = styled.header`
 
   min-height: 60px;
   width: 100%;
+  padding-left: calc((100vw - 100%) / 2);
+  align-self: flex-end;
 
   background-color: ${({ theme }) => theme.colors.background};
 

@@ -10,8 +10,8 @@ const MainWrapper = styled.div`
   align-items: center;
   min-height: 100vh;
 
-  background-color: ${({ theme }) => theme.colors.background};
-  color: ${({ theme }) => theme.colors.text};
+  background-color: var(--color-background);
+  color: var(--color-text);
   font-family: 'Merriweather';
   font-weight: 300;
 

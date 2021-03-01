@@ -1,24 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  css,
-  Global,
-  ThemeProvider as DefaultThemeProvider,
-} from '@emotion/react'
+import { css, Global } from '@emotion/react'
 
 import '@fontsource/lato/700.css'
 import '@fontsource/merriweather/300.css'
 import '@fontsource/merriweather/700.css'
-
-const theme = {
-  colors: {
-    background: '#eff4ff',
-    text: '#1d1d1d',
-    link: '#2b5797',
-    linkHover: '#2b5797',
-    shadow: 'rgba(29, 29, 29, 0.3)',
-  },
-}
 
 const globalStyles = css`
   html,
@@ -28,16 +14,22 @@ const globalStyles = css`
   }
 
   html {
+    --color-background: #eff4ff;
+    --color-text: #1d1d1d;
+    --color-link: #2b5797;
+    --color-linkHover: #2b5797;
+    --color-shadow: rgba(29, 29, 29, 0.3);
+
     margin-left: calc(100vw - 100%);
-    background-color: ${theme.colors.background};
+    background-color: var(--color-background);
   }
 
   a {
-    color: ${theme.colors.link};
+    color: var(--color-link);
     text-decoration: none;
 
     &:hover {
-      color: ${theme.colors.linkHover};
+      color: var(--color-linkHover);
       text-decoration: underline;
     }
   }
@@ -87,9 +79,10 @@ const globalStyles = css`
 `
 
 const ThemeProvider = ({ children }) => (
-  <DefaultThemeProvider theme={theme}>
-    <Global styles={globalStyles} /> {children}
-  </DefaultThemeProvider>
+  <>
+    <Global styles={globalStyles} />
+    {children}
+  </>
 )
 
 ThemeProvider.propTypes = {

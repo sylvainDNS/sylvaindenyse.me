@@ -12,11 +12,11 @@ const Header = styled.header`
   padding-left: calc((100vw - 100%) / 2);
   align-self: flex-end;
 
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: var(--color-background);
 
   transition: ease 100ms box-shadow;
   box-shadow: 0 3px 5px
-    ${({ shadow, theme }) => (shadow ? theme.colors.shadow : 'transparent')};
+    ${({ shadow }) => (shadow ? 'var(--color-shadow)' : 'transparent')};
 
   .container {
     width: 100%;
@@ -34,7 +34,7 @@ const Header = styled.header`
     font-weight: 700;
 
     a:not(:hover) {
-      color: ${({ theme }) => theme.colors.text};
+      color: var(--color-text);
     }
 
     .title {

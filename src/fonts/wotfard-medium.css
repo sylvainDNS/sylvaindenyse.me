@@ -1,0 +1,19 @@
+@font-face {
+  font-family: Wotfard;
+  src: url('./wotfard-medium-webfont.woff2') format('woff2'),
+    url('./wotfard-medium-webfont.ttf') format('ttf'),
+    url('./wotfard-medium-webfont.eot') format('ttf');
+  font-style: normal;
+  font-weight: 500;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: Wotfard;
+  src: url('./wotfard-mediumitalic-webfont.woff2') format('woff2'),
+    url('./wotfard-mediumitalic-webfont.ttf') format('ttf'),
+    url('./wotfard-mediumitalic-webfont.eot') format('ttf');
+  font-style: italic;
+  font-weight: 500;
+  font-display: fallback;
+}

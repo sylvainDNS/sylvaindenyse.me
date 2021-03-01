@@ -12,8 +12,6 @@ const MainWrapper = styled.div`
 
   background-color: var(--color-background);
   color: var(--color-text);
-  font-family: 'Merriweather';
-  font-weight: 300;
 
   .content {
     display: flex;

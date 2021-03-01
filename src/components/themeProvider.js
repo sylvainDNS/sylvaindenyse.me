@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { css, Global } from '@emotion/react'
 
-import '@fontsource/lato/700.css'
-import '@fontsource/merriweather/300.css'
-import '@fontsource/merriweather/700.css'
+import '../fonts/wotfard-light.css'
+import '../fonts/wotfard-regular.css'
+import '../fonts/wotfard-medium.css'
 
 const globalStyles = css`
   html,
@@ -20,8 +20,19 @@ const globalStyles = css`
     --color-linkHover: #2b5797;
     --color-shadow: rgba(29, 29, 29, 0.3);
 
+    --font-family: Wotfard, Futura, sans-serif;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+
     margin-left: calc(100vw - 100%);
     background-color: var(--color-background);
+  }
+
+  body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+    font-size: 19px;
   }
 
   a {
@@ -40,13 +51,12 @@ const globalStyles = css`
   h4,
   h5,
   h6 {
-    font-family: 'lato';
-    font-weight: 700;
+    font-weight: var(--font-weight-medium);
   }
 
   b,
   strong {
-    font-weight: 700;
+    font-weight: var(--font-weight-medium);
   }
 
   article {

@@ -30,8 +30,7 @@ const Header = styled.header`
     margin: 0 auto;
     padding: 0 20px;
 
-    font-family: 'Lato';
-    font-weight: 700;
+    font-weight: var(--font-weight-medium);
 
     a:not(:hover) {
       color: var(--color-text);

@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useLocation } from '@reach/router'
 import { graphql, useStaticQuery } from 'gatsby'
 import { Helmet } from 'react-helmet'
+import tracker from '../utils/tracker'
 
 const SEO = ({
   title = null,
@@ -29,6 +30,16 @@ const SEO = ({
     url: `${siteUrl}${pathname}`,
   }
 
+  useEffect(() => {
+    const cleanupAutoPageViews = tracker.enableAutoPageviews()
+    const cleanupAutoOutboundTracking = tracker.enableAutoOutboundTracking()
+
+    return () => {
+      cleanupAutoPageViews()
+      cleanupAutoOutboundTracking()
+    }
+  }, [])
+
   return (
     <Helmet title={seo.title} titleTemplate={titleTemplate}>
       <html lang="en" />
@@ -50,18 +61,6 @@ const SEO = ({
         <meta name="twitter:description" content={seo.description} />
       )}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
-      <script
-        async
-        defer
-        data-domain="sylvaindenyse.me"
-        src="https://stats.sylvaindenyse.me/js/index.js"
-      ></script>
-      <script
-        async
-        defer
-        data-domain="sylvaindenyse.me"
-        src="https://stats.sylvaindenyse.me/js/index.outbound-links.js"
-      ></script>
     </Helmet>
   )
 }

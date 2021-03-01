@@ -2,7 +2,7 @@ name: Deploy
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   buildAndPublish:
@@ -21,10 +21,10 @@ jobs:
       - name: Create CNAME file
         run: echo ${{ secrets.DOMAIN_NAME }} > CNAME
 
-      - name: Checkout master branch
+      - name: Checkout main branch
         uses: actions/checkout@v2
         with:
-          ref: master
+          ref: main
           path: temp
           persist-credentials: false
 

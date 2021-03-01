@@ -85,7 +85,7 @@ const Home = () => (
     <SEO title="Welcome!" />
     <Avatar />
     <h1>Sylvain DENYSE</h1>
-    <h2>Full Stack, DevOps, and Magician</h2>
+    <h2>Full Stack Web Developer</h2>
     <ul className="link-list">
       {links.map(({ to, icon, title }, index) => (
         <Item key={`index-page-links-list-${index}`} title={title}>

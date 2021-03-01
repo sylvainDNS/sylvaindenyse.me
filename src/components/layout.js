@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import NavigationHeader from './navigationHeader'
 
@@ -26,6 +25,8 @@ const MainWrapper = styled.div`
   footer {
     margin-top: auto;
     text-align: center;
+    font-size: 16px;
+    font-weight: var(--font-weight-light);
 
     p:last-of-type {
       margin-bottom: 4px;
@@ -35,17 +36,10 @@ const MainWrapper = styled.div`
 
 const Layout = ({ children }) => (
   <MainWrapper>
-    <NavigationHeader
-      css={css`
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-      `}
-    />
+    <NavigationHeader />
     <main className="content">{children}</main>
     <footer>
-      <p>Innovating with respect.</p>
-      <p>© 2020</p>
+      <p>© 2021 - Make IT more committed.</p>
     </footer>
   </MainWrapper>
 )

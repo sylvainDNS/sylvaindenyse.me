@@ -7,6 +7,10 @@ const Header = styled.header`
   align-items: center;
   justify-content: center;
 
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
   min-height: 60px;
   width: 100%;
   padding-left: calc((100vw - 100%) / 2);
@@ -52,13 +56,9 @@ const NavigationHeader = props => {
       <section className="container">
         <nav className="navigation">
           <Link className="title" to="/">
-            <span className="nav-link">Sylvain DENYSE</span>
-            {' - '}
-            <span className="nav-link">Web Developer Designer</span>
+            Sylvain DENYSE
           </Link>
-          <Link to="/resume">
-            <span className="nav-link">About me</span>
-          </Link>
+          <Link to="/resume">About me</Link>
         </nav>
       </section>
     </Header>

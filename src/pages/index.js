@@ -54,6 +54,10 @@ const Item = styled.li`
       color: var(--color-${({ title }) => title.toLowerCase()});
       transition: none;
     }
+
+    &::after {
+      width: 0;
+    }
   }
 `
 

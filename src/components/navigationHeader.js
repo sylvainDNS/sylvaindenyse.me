@@ -39,47 +39,19 @@ const Header = styled.header`
 
     font-weight: var(--font-weight-medium);
 
-    .nav-link:not(:hover) {
-      color: var(--color-text);
-    }
-
     .nav-link {
-      position: relative;
+      &:not(:hover) {
+        color: var(--color-text);
 
-      &::after {
-        content: '';
-        position: absolute;
-        top: 100%;
-        left: 50%;
-
-        height: 2px;
-        width: 0%;
-
-        border-radius: 4px;
-
-        transition: 200ms ease-out;
-        transition-property: width, left, background-color, color;
-      }
-    }
-
-    .nav-link {
-      &:hover,
-      &:focus {
-        text-decoration: none;
-
-        &::after {
-          left: 10%;
-          width: 80%;
-          background-color: var(--color-link-hover);
+        &.active::after {
+          left: 30%;
+          width: 40%;
+          background-color: var(--color-link);
         }
       }
-    }
 
-    .active {
       &::after {
-        left: 30%;
-        width: 40%;
-        background-color: var(--color-link);
+        height: 2px;
       }
     }
 

@@ -36,12 +36,34 @@ const globalStyles = css`
   }
 
   a {
+    position: relative;
     color: var(--color-link);
     text-decoration: none;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--color-link-hover);
-      text-decoration: underline;
+
+      &::after {
+        left: 10%;
+        width: 80%;
+        background-color: var(--color-link-hover);
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(100% - 2px);
+      left: 50%;
+
+      height: 1px;
+      width: 0%;
+
+      border-radius: 4px;
+
+      transition: 150ms ease-out;
+      transition-property: width, left, background-color, color;
     }
   }
 

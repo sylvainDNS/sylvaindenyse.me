@@ -33,6 +33,11 @@ const Wrapper = styled.div`
     padding: 0;
 
     font-size: 32px;
+
+    --color-github: #6f42c1;
+    --color-gitlab: #fa7035;
+    --color-twitter: #1da1f2;
+    --color-linkedin: #2977c9;
   }
 `
 
@@ -42,11 +47,11 @@ const Item = styled.li`
 
   a {
     transition: 1s ease color;
-    color: ${({ theme }) => theme.colors.text};
+    color: var(--color-text);
 
     &:hover,
     &:focus {
-      color: ${({ hoverColor }) => hoverColor};
+      color: var(--color-${({ title }) => title.toLowerCase()});
       transition: none;
     }
   }
@@ -56,25 +61,21 @@ const links = [
   {
     to: 'https://github.com/sylvaindns/',
     icon: faGithub,
-    color: '#6f42c1',
     title: 'GitHub',
   },
   {
     to: 'https://gitlab.com//sylvainDNS/',
     icon: faGitlab,
-    color: '#fa7035',
     title: 'GitLab',
   },
   {
     to: 'https://twitter.com/sylvaindenyse/',
     icon: faTwitter,
-    color: '#1da1f2',
     title: 'Twitter',
   },
   {
     to: 'https://www.linkedin.com/in/sylvain-denyse/',
     icon: faLinkedin,
-    color: '#2977c9',
     title: 'LinkedIn',
   },
 ]
@@ -84,10 +85,10 @@ const Home = () => (
     <SEO title="Welcome!" />
     <Avatar />
     <h1>Sylvain DENYSE</h1>
-    <h2>Full Stack, DevOps, and Magician</h2>
+    <h2>Full Stack Web Developer</h2>
     <ul className="link-list">
-      {links.map(({ to, icon, color, title }, index) => (
-        <Item key={`index-page-links-list-${index}`} hoverColor={color}>
+      {links.map(({ to, icon, title }, index) => (
+        <Item key={`index-page-links-list-${index}`} title={title}>
           <a href={to} title={title} target="_blank" rel="noreferrer">
             <FontAwesomeIcon icon={icon} />
           </a>

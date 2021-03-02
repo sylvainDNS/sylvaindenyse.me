@@ -13,6 +13,7 @@ const Avatar = ({ css: cssProps }) => (
     src="../images/avatar.jpg"
     alt="A picture of me"
     formats={['auto', 'webp', 'avif']}
+    quality={80}
   />
 )
 

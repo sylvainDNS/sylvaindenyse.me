@@ -1,24 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  css,
-  Global,
-  ThemeProvider as DefaultThemeProvider,
-} from '@emotion/react'
+import { css, Global } from '@emotion/react'
 
-import '@fontsource/lato/700.css'
-import '@fontsource/merriweather/300.css'
-import '@fontsource/merriweather/700.css'
-
-const theme = {
-  colors: {
-    background: '#eff4ff',
-    text: '#1d1d1d',
-    link: '#2b5797',
-    linkHover: '#2b5797',
-    shadow: 'rgba(29, 29, 29, 0.3)',
-  },
-}
+import '../fonts/wotfard-light.css'
+import '../fonts/wotfard-regular.css'
+import '../fonts/wotfard-medium.css'
 
 const globalStyles = css`
   html,
@@ -28,16 +14,33 @@ const globalStyles = css`
   }
 
   html {
+    --color-background: #1d1f20;
+    --color-text: #eff4ff;
+    --color-link: #ef476f;
+    --color-link-hover: #ffbe0b;
+    --color-shadow: rgba(10, 10, 10, 0.3);
+
+    --font-family: Wotfard, Futura, sans-serif;
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+
     margin-left: calc(100vw - 100%);
-    background-color: ${theme.colors.background};
+    background-color: var(--color-background);
+  }
+
+  body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-regular);
+    font-size: 19px;
   }
 
   a {
-    color: ${theme.colors.link};
+    color: var(--color-link);
     text-decoration: none;
 
     &:hover {
-      color: ${theme.colors.linkHover};
+      color: var(--color-link-hover);
       text-decoration: underline;
     }
   }
@@ -48,13 +51,12 @@ const globalStyles = css`
   h4,
   h5,
   h6 {
-    font-family: 'lato';
-    font-weight: 700;
+    font-weight: var(--font-weight-medium);
   }
 
   b,
   strong {
-    font-weight: 700;
+    font-weight: var(--font-weight-medium);
   }
 
   article {
@@ -87,9 +89,10 @@ const globalStyles = css`
 `
 
 const ThemeProvider = ({ children }) => (
-  <DefaultThemeProvider theme={theme}>
-    <Global styles={globalStyles} /> {children}
-  </DefaultThemeProvider>
+  <>
+    <Global styles={globalStyles} />
+    {children}
+  </>
 )
 
 ThemeProvider.propTypes = {

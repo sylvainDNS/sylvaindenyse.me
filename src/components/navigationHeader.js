@@ -19,8 +19,11 @@ const Header = styled.header`
   background-color: var(--color-background);
 
   transition: ease 100ms box-shadow;
-  box-shadow: 0 3px 5px
-    ${({ shadow }) => (shadow ? 'var(--color-shadow)' : 'transparent')};
+  box-shadow: 0 3px 5px transparent;
+
+  &.scrolled {
+    box-shadow: 0 3px 5px var(--color-shadow);
+  }
 
   .container {
     width: 100%;
@@ -36,8 +39,48 @@ const Header = styled.header`
 
     font-weight: var(--font-weight-medium);
 
-    a:not(:hover) {
+    .nav-link:not(:hover) {
       color: var(--color-text);
+    }
+
+    .nav-link {
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+
+        height: 2px;
+        width: 0%;
+
+        border-radius: 4px;
+
+        transition: 200ms ease-out;
+        transition-property: width, left, background-color, color;
+      }
+    }
+
+    .nav-link {
+      &:hover,
+      &:focus {
+        text-decoration: none;
+
+        &::after {
+          left: 10%;
+          width: 80%;
+          background-color: var(--color-link-hover);
+        }
+      }
+    }
+
+    .active {
+      &::after {
+        left: 30%;
+        width: 40%;
+        background-color: var(--color-link);
+      }
     }
 
     .title {
@@ -52,13 +95,15 @@ const NavigationHeader = props => {
   const hasScrolled = useHasScrolled()
 
   return (
-    <Header {...props} shadow={hasScrolled}>
+    <Header {...props} className={hasScrolled && 'scrolled'}>
       <section className="container">
         <nav className="navigation">
-          <Link className="title" to="/">
+          <Link className="nav-link title" to="/">
             Sylvain DENYSE
           </Link>
-          <Link to="/resume">About me</Link>
+          <Link className="nav-link" activeClassName="active" to="/resume">
+            About me
+          </Link>
         </nav>
       </section>
     </Header>

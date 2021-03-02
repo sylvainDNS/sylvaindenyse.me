@@ -14,11 +14,11 @@ const globalStyles = css`
   }
 
   html {
-    --color-background: #eff4ff;
-    --color-text: #1d1d1d;
-    --color-link: #2b5797;
-    --color-linkHover: #2b5797;
-    --color-shadow: rgba(29, 29, 29, 0.3);
+    --color-background: #1d1f20;
+    --color-text: #eff4ff;
+    --color-link: #ef476f;
+    --color-link-hover: #ffbe0b;
+    --color-shadow: rgba(10, 10, 10, 0.3);
 
     --font-family: Wotfard, Futura, sans-serif;
     --font-weight-light: 300;
@@ -40,7 +40,7 @@ const globalStyles = css`
     text-decoration: none;
 
     &:hover {
-      color: var(--color-linkHover);
+      color: var(--color-link-hover);
       text-decoration: underline;
     }
   }

@@ -6,6 +6,7 @@ import {
   faGitlab,
   faTwitter,
   faLinkedin,
+  faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
 import Avatar from '../components/avatar'
 import SEO from '../components/seo'
@@ -69,6 +70,48 @@ const Wrapper = styled.div`
   .linkedin {
     --color-link-hover: #2977c9;
   }
+
+  .instagram {
+    position: relative;
+
+    &:hover {
+      background: transparent;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: calc(0.875em - 1px);
+      height: calc(0.875em - 1px);
+
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      border-radius: 12px;
+      background: radial-gradient(
+        circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+      );
+
+      opacity: 0;
+      transition: 1s ease opacity;
+    }
+
+    svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:hover::after {
+      transition: none;
+      opacity: 1;
+    }
+  }
 `
 
 const links = [
@@ -91,6 +134,11 @@ const links = [
     to: 'https://www.linkedin.com/in/sylvain-denyse/',
     icon: faLinkedin,
     title: 'LinkedIn',
+  },
+  {
+    to: 'https://www.instagram.com/sylvain.dns/',
+    icon: faInstagram,
+    title: 'Instagram',
   },
 ]
 

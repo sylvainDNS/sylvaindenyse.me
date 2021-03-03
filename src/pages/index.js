@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import Avatar from '../components/avatar'
 import SEO from '../components/seo'
+import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`
   display: flex;
@@ -34,30 +35,39 @@ const Wrapper = styled.div`
 
     font-size: 32px;
 
-    --color-github: #6f42c1;
-    --color-gitlab: #fa7035;
-    --color-twitter: #1da1f2;
-    --color-linkedin: #2977c9;
+    --color-link: var(--color-text);
+    --color-link-hover: var(--color-text);
+
+    .link-item {
+      display: inline;
+      margin: 0 10px;
+
+      a {
+        transition: 1s ease color;
+
+        &:hover,
+        &:focus {
+          transition: none;
+        }
+
+        &::after {
+          width: 0;
+        }
+      }
+    }
   }
-`
 
-const Item = styled.li`
-  display: inline;
-  margin: 0 10px;
-
-  a {
-    transition: 1s ease color;
-    color: var(--color-text);
-
-    &:hover,
-    &:focus {
-      color: var(--color-${({ title }) => title.toLowerCase()});
-      transition: none;
-    }
-
-    &::after {
-      width: 0;
-    }
+  .github {
+    --color-link-hover: #6f42c1;
+  }
+  .gitlab {
+    --color-link-hover: #fa7035;
+  }
+  .twitter {
+    --color-link-hover: #1da1f2;
+  }
+  .linkedin {
+    --color-link-hover: #2977c9;
   }
 `
 
@@ -84,21 +94,29 @@ const links = [
   },
 ]
 
+const Item = ({ to, icon, title }, index) => (
+  <li
+    key={`index-page-links-list-${index}`}
+    className={`link-item ${title.toLowerCase()}`}
+  >
+    <a href={to} title={title} target="_blank" rel="noreferrer">
+      <FontAwesomeIcon icon={icon} />
+    </a>
+  </li>
+)
+Item.propTypes = {
+  to: PropTypes.string.isRequired,
+  icon: PropTypes.element.isRequired,
+  title: PropTypes.string.isRequired,
+}
+
 const Home = () => (
   <Wrapper>
     <SEO title="Welcome!" />
     <Avatar />
     <h1>Sylvain DENYSE</h1>
     <h2>Full Stack Web Developer</h2>
-    <ul className="link-list">
-      {links.map(({ to, icon, title }, index) => (
-        <Item key={`index-page-links-list-${index}`} title={title}>
-          <a href={to} title={title} target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={icon} />
-          </a>
-        </Item>
-      ))}
-    </ul>
+    <ul className="link-list">{links.map(Item)}</ul>
   </Wrapper>
 )
 

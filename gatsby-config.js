@@ -10,6 +10,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-eslint',
     'gatsby-plugin-emotion',
+    'gatsby-plugin-fontawesome-css',
     'gatsby-plugin-image',
     {
       resolve: `gatsby-plugin-manifest`,

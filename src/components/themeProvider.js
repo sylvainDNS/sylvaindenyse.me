@@ -27,12 +27,10 @@ const globalStyles = css`
 
     margin-left: calc(100vw - 100%);
     background-color: var(--color-background);
-  }
 
-  body {
+    font-size: 19px;
     font-family: var(--font-family);
     font-weight: var(--font-weight-regular);
-    font-size: 19px;
   }
 
   a {

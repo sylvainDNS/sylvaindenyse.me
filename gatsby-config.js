@@ -31,7 +31,14 @@ module.exports = {
     'gatsby-plugin-mdx',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'posts',
+        path: `${__dirname}/src/posts/`,
+      },
+    },
+    'gatsby-transformer-sharp',
   ],
 }

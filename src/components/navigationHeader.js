@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import PropTypes from 'prop-types'
 
 const Header = styled.header`
   display: flex;
@@ -57,11 +58,42 @@ const Header = styled.header`
 
     .title {
       text-transform: uppercase;
-      margin-right: 32px;
       letter-spacing: 1px;
     }
   }
+
+  .nav-link-list {
+    display: flex;
+
+    padding: 0;
+    margin: 0;
+
+    list-style: none;
+
+    .nav-link {
+      display: block;
+      margin-left: 40px;
+      height: 100%;
+    }
+  }
 `
+
+const NavLink = ({ label, to }, index) => (
+  <li key={`nav-link-item-${index}`}>
+    <Link className="nav-link" activeClassName="active" to={to}>
+      {label}
+    </Link>
+  </li>
+)
+NavLink.propTypes = {
+  label: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
+}
+
+const navLinks = [
+  { label: 'Blog', to: '/blog' },
+  { label: 'About me', to: '/resume' },
+]
 
 const NavigationHeader = props => {
   const hasScrolled = useHasScrolled()
@@ -73,9 +105,7 @@ const NavigationHeader = props => {
           <Link className="nav-link title" to="/">
             Sylvain DENYSE
           </Link>
-          <Link className="nav-link" activeClassName="active" to="/resume">
-            About me
-          </Link>
+          <ul className="nav-link-list">{navLinks.map(NavLink)}</ul>
         </nav>
       </section>
     </Header>

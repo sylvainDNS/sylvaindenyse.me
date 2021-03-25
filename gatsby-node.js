@@ -9,6 +9,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         nodes {
           frontmatter {
             path
+            published
           }
         }
       }
@@ -20,13 +21,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  result.data.allMdx.nodes.forEach(({ frontmatter: { path } }) => {
-    createPage({
-      path,
-      component: blogPostTemplate,
-      context: {
-        slug: path,
-      },
-    })
-  })
+  result.data.allMdx.nodes.forEach(
+    ({ frontmatter: { path, published = false } }) => {
+      if (published)
+        createPage({
+          path,
+          component: blogPostTemplate,
+          context: {
+            slug: path,
+          },
+        })
+    }
+  )
 }

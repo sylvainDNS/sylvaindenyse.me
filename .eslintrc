@@ -4,7 +4,13 @@
     "browser": true,
     "node":true
   },
-  "parser": "babel-eslint",
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "babelOptions": {
+      "presets": ["@babel/preset-react"]
+    },
+    "requireConfigFile": false
+  },
   "extends": [
     "eslint:recommended",
     "plugin:prettier/recommended",

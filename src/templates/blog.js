@@ -61,7 +61,7 @@ Template.propTypes = {
 }
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     mdx(frontmatter: { path: { eq: $slug } }) {
       body
       frontmatter {

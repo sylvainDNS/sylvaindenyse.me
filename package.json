@@ -17,9 +17,9 @@
   "dependencies": {
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.32",
-    "@fortawesome/free-brands-svg-icons": "^5.15.1",
-    "@fortawesome/react-fontawesome": "^0.1.14",
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "gatsby": "^4.1.4",
@@ -33,8 +33,8 @@
     "gatsby-plugin-sitemap": "^5.1.1",
     "gatsby-source-filesystem": "^4.1.2",
     "gatsby-transformer-sharp": "^4.1.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-helmet": "^6.1.0"
   },
   "devDependencies": {

@@ -12,7 +12,8 @@ jobs:
       - name: Define subdomain
         id: subdomain-generator
         run: echo "::set-output name=subdomain::$(echo ${{ github.head_ref }} |
-          sed 's/[^a-zA-Z0-9]//g')-review"
+          sed 's/[^a-zA-Z0-9]//g' |
+          tr '[:upper:]' '[:lower:]')-review"
       - name: Checkout sources
         uses: actions/checkout@v2
 

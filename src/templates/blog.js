@@ -8,21 +8,6 @@ import SEO from '../components/SEO'
 const getTimeToRead = (words, wordsPerMinute = 180) =>
   Math.round(words / wordsPerMinute) || 1
 
-const Article = styled.article`
-  .title {
-    margin-bottom: 0;
-  }
-
-  .publication-hint {
-    font-style: italic;
-    font-weight: var(--font-weight-light);
-  }
-
-  p:first-of-type {
-    margin-top: 2rem;
-  }
-`
-
 const Template = ({ data }) => {
   const { mdx } = data
   const {
@@ -34,14 +19,16 @@ const Template = ({ data }) => {
   const timeToRead = getTimeToRead(words)
 
   return (
-    <Article>
+    <section>
       <SEO title={frontmatter.title} article={true} description={excerpt} />
-      <h1 className="title">{frontmatter.title}</h1>
-      <div className="publication-hint">
+      <Title>{frontmatter.title}</Title>
+      <Meta>
         Published on {frontmatter.date} · {timeToRead} minutes to read
-      </div>
-      <MDXRenderer>{body}</MDXRenderer>
-    </Article>
+      </Meta>
+      <Article>
+        <MDXRenderer>{body}</MDXRenderer>
+      </Article>
+    </section>
   )
 }
 Template.propTypes = {
@@ -59,6 +46,21 @@ Template.propTypes = {
     }),
   }),
 }
+
+const Title = styled.h1`
+  margin: 0;
+`
+
+const Meta = styled.p`
+  font-style: italic;
+  font-weight: var(--font-weight-light);
+`
+
+const Article = styled.article`
+  p:first-of-type {
+    margin-top: 2rem;
+  }
+`
 
 export const pageQuery = graphql`
   query ($slug: String!) {

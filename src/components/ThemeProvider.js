@@ -42,14 +42,14 @@ const globalStyles = css`
     &:focus {
       color: var(--color-link-hover);
 
-      &::after {
+      &:after {
         left: 10%;
         width: 80%;
         background-color: var(--color-link-hover);
       }
     }
 
-    &::after {
+    &:after {
       content: '';
       position: absolute;
       top: calc(100% - 2px);
@@ -95,8 +95,8 @@ const globalStyles = css`
   }
 
   *,
-  ::before,
-  ::after {
+  :before,
+  :after {
     line-height: 1.6;
   }
 

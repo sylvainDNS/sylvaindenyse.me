@@ -52,7 +52,7 @@ const Wrapper = styled.div`
           transition: none;
         }
 
-        &::after {
+        &:after {
           width: 0;
         }
       }
@@ -79,7 +79,7 @@ const Wrapper = styled.div`
       background: transparent;
     }
 
-    &::after {
+    &:before {
       content: '';
       position: absolute;
       width: calc(0.875em - 1px);
@@ -105,10 +105,9 @@ const Wrapper = styled.div`
 
     svg {
       position: relative;
-      z-index: 1;
     }
 
-    &:hover::after {
+    &:hover:before {
       transition: none;
       opacity: 1;
     }

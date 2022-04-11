@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
-import NavigationHeader from './NavigationHeader'
+import Navigation from './Navigation'
 
 const Layout = ({ children }) => (
   <Wrapper>
-    <NavigationHeader />
+    <Navigation />
     <Main>{children}</Main>
     <Footer>
       <p>© 2021 - Make IT more committed.</p>
@@ -28,6 +28,7 @@ const Main = styled.main`
   flex-direction: column;
   align-items: center;
   flex-grow: 1;
+  isolation: isolate;
 
   width: min(65ch, calc(100% - 64px));
   margin: 16px 32px 32px;

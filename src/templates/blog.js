@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import PropTypes from 'prop-types'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import styled from '@emotion/styled'
-import SEO from '../components/seo'
+import SEO from '../components/SEO'
 
 const getTimeToRead = (words, wordsPerMinute = 180) =>
   Math.round(words / wordsPerMinute) || 1

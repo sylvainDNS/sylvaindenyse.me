@@ -8,8 +8,8 @@ import {
   faLinkedin,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
-import Avatar from '../components/avatar'
-import SEO from '../components/seo'
+import Avatar from '../components/Avatar'
+import SEO from '../components/SEO'
 import PropTypes from 'prop-types'
 
 const Wrapper = styled.div`

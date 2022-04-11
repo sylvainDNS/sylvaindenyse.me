@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faGithub,
@@ -8,9 +9,9 @@ import {
   faLinkedin,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
-import Avatar from '../components/avatar'
-import SEO from '../components/seo'
-import PropTypes from 'prop-types'
+import Avatar from '../components/Avatar'
+import SEO from '../components/SEO'
+import VisuallyHidden from '../components/VisuallyHidden'
 
 const Wrapper = styled.div`
   display: flex;
@@ -148,6 +149,7 @@ const Item = ({ to, icon, title }, index) => (
     className={`link-item ${title.toLowerCase()}`}
   >
     <a href={to} title={title} target="_blank" rel="noreferrer">
+      <VisuallyHidden>{title}</VisuallyHidden>
       <FontAwesomeIcon icon={icon} />
     </a>
   </li>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import SEO from '../components/seo'
+import SEO from '../components/SEO'
 
 const Content = styled.h1`
   margin: auto;

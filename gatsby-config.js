@@ -3,7 +3,7 @@ module.exports = {
     title: 'Sylvain DENYSE',
     titleTemplate: '%s · Sylvain DENYSE',
     description: 'Personal website of a web developer.',
-    image: '/images/avatar.jpg',
+    image: '/images/Avatar.jpg',
     twitterUsername: '@sylvaindenyse',
     siteUrl: `https://sylvaindenyse.me`,
   },

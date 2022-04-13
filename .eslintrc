@@ -2,7 +2,8 @@
   "env": {
     "es6": true,
     "browser": true,
-    "node":true
+    "node": true,
+    "jest/globals": true
   },
   "parser": "@babel/eslint-parser",
   "parserOptions": {
@@ -17,7 +18,8 @@
     "plugin:react/recommended"
   ],
   "plugins": [
-    "prettier"
+    "prettier",
+    "jest"
   ],
   "rules": {
     "no-unused-vars":"warn",

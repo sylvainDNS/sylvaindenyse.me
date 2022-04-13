@@ -2,6 +2,7 @@ name: Remove S3 bucket
 
 on: 
   pull_request:
+    branches: [main]
     types: [closed]
 
 jobs:

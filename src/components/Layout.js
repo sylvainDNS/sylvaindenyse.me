@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import Navigation from './Navigation'
+import AccessibilityFeatures from './AccessibilityFeatures'
 
 const Layout = ({ children }) => (
   <Wrapper>
@@ -10,6 +11,7 @@ const Layout = ({ children }) => (
     <Footer>
       <p>© 2021 - Make IT more committed.</p>
     </Footer>
+    <AccessibilityFeatures />
   </Wrapper>
 )
 
@@ -18,6 +20,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  position: relative;
 
   background-color: var(--color-background);
   color: var(--color-text);

@@ -1,10 +1,11 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { css, Global } from '@emotion/react'
+import { FONT, useThemeState } from './context'
+import { isBrowser } from '../../utils'
 
-import '../fonts/wotfard-light.css'
-import '../fonts/wotfard-regular.css'
-import '../fonts/wotfard-medium.css'
+import '../../fonts/wotfard.css'
+import '../../fonts/luciole.css'
+import '../../fonts/opendyslexic.css'
 
 const globalStyles = css`
   html,
@@ -15,6 +16,7 @@ const globalStyles = css`
 
   html {
     --color-background: #1d1f20;
+    --color-background-light: #2f3233;
     --color-text: #eff4ff;
     --color-link: #ef476f;
     --color-link-hover: #ffbe0b;
@@ -28,7 +30,7 @@ const globalStyles = css`
     margin-left: calc(100vw - 100%);
     background-color: var(--color-background);
 
-    font-size: 19px;
+    font-size: ${19 / 16}rem;
     font-family: var(--font-family);
     font-weight: var(--font-weight-regular);
   }
@@ -108,15 +110,26 @@ const globalStyles = css`
   }
 `
 
-const ThemeProvider = ({ children }) => (
-  <>
-    <Global styles={globalStyles} />
-    {children}
-  </>
-)
+const GlobalStyles = () => {
+  const state = useThemeState()
 
-ThemeProvider.propTypes = {
-  children: PropTypes.node,
+  if (isBrowser) {
+    window.localStorage.setItem('font', state.font)
+
+    const font = FONT_FAMILY[state.font]
+
+    const root = window.document.documentElement
+    root.style.setProperty('--font-family', `${font}${fallback}`)
+  }
+
+  return <Global styles={globalStyles} />
 }
 
-export default ThemeProvider
+const fallback = ', Futura, sans-serif'
+const FONT_FAMILY = {
+  [FONT.DEFAULT]: 'Wotfard',
+  [FONT.DYSLEXIC]: 'OpenDyslexic',
+  [FONT.VISUALLY_IMPAIRED]: 'Luciole',
+}
+
+export default GlobalStyles

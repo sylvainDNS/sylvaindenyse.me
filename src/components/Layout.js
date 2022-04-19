@@ -1,8 +1,9 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import Navigation from './Navigation'
-import { graphql, useStaticQuery } from 'gatsby'
+import AccessibilityFeatures from './AccessibilityFeatures'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -24,6 +25,7 @@ const Layout = ({ children }) => {
       <Footer>
         <p>© {buildYear} — Nantes</p>
       </Footer>
+      <AccessibilityFeatures />
     </Wrapper>
   )
 }
@@ -33,6 +35,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
+  position: relative;
 
   background-color: var(--color-background);
   color: var(--color-text);

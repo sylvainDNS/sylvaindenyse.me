@@ -2,7 +2,6 @@ name: Create a bucket for the PR
 
 on:
   pull_request:
-    branches: [main]
     types: [opened]
 
 jobs:

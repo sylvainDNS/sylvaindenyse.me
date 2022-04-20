@@ -12,7 +12,10 @@
     "start": "gatsby develop",
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "lint:css": "stylelint './src/**/*.js'",
+    "lint:js": "eslint && prettier --check ./src '!./src/**/fonts'",
+    "lint": "yarn lint:css && yarn lint:js"
   },
   "license": "0BSD",
   "dependencies": {

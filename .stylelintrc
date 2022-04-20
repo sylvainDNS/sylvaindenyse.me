@@ -1,0 +1,12 @@
+{
+  "customSyntax": "postcss-jsx",
+  "extends": [
+  "stylelint-config-recommended",
+  "stylelint-a11y/recommended",
+  "stylelint-config-recess-order"
+  ],
+  "rules": {
+    "property-no-vendor-prefix": true,
+    "value-no-vendor-prefix": true
+  }
+}

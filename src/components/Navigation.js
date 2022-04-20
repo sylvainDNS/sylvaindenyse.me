@@ -34,18 +34,17 @@ const Navigation = () => {
 }
 
 const Wrapper = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   position: fixed;
   top: 0;
   z-index: 1;
 
-  min-height: 60px;
-  width: 100%;
-  padding-left: calc((100vw - 100%) / 2);
+  display: flex;
+  align-items: center;
   align-self: flex-end;
+  justify-content: center;
+  width: 100%;
+  min-height: 60px;
+  padding-left: calc((100vw - 100%) / 2);
 
   background-color: var(--color-background);
   box-shadow: 0 3px 5px var(--box-shadow);
@@ -63,15 +62,15 @@ const Container = styled.section`
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-
-  margin: 0 auto;
   padding: 0 20px;
+  margin: 0 auto;
 
   font-weight: var(--font-weight-medium);
 `
 
 const Link = styled(DefaultLink)`
-  &:not(:hover) {
+  &:not(:hover),
+  &:not(:focus) {
     color: var(--color-text);
 
     &.active:after {

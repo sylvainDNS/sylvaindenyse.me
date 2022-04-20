@@ -26,16 +26,17 @@ const AccessibilityFeatures = () => {
 
 const Wrapper = styled.div`
   position: fixed;
-  left: var(--left);
   top: 0;
   bottom: 0;
+  left: var(--left);
+
   display: grid;
-  grid-template-columns: 400px 30px;
   grid-template-areas: 'features toggle-button';
+  grid-template-columns: 400px 30px;
   align-items: center;
 
-  color: var(--color-text);
   font-size: ${16 / 19}rem;
+  color: var(--color-text);
 
   button {
     display: grid;
@@ -43,9 +44,10 @@ const Wrapper = styled.div`
     align-items: center;
     justify-items: center;
 
-    border: none;
     color: inherit;
     background-color: var(--color-background-light);
+
+    border: none;
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -55,9 +57,9 @@ const Wrapper = styled.div`
 
 const Button = styled.button`
   grid-area: toggle-button;
+  height: 180px;
   border-radius: 0 4px 4px 0;
   writing-mode: sideways-rl;
-  height: 180px;
 `
 
 export default AccessibilityFeatures

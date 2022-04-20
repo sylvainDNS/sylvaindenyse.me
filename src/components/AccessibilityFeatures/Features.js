@@ -22,14 +22,15 @@ const Features = () => (
 
 const Wrapper = styled.div`
   display: flex;
-  height: 100%;
   align-items: center;
+  height: 100%;
+
   background-color: var(--color-background-light);
 
   ul {
-    list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    list-style: none;
   }
 `
 

@@ -31,33 +31,34 @@ const Layout = ({ children }) => {
 }
 
 const Wrapper = styled.div`
+  position: relative;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  position: relative;
 
-  background-color: var(--color-background);
   color: var(--color-text);
+  background-color: var(--color-background);
 `
 
 const Main = styled.main`
   display: flex;
   flex-direction: column;
-  align-items: center;
   flex-grow: 1;
-  isolation: isolate;
-
+  align-items: center;
   width: min(65ch, calc(100% - 64px));
   margin: 16px 32px 32px;
+  isolation: isolate;
 `
 
 const Footer = styled.footer`
-  text-align: center;
+  margin-top: auto;
+  margin-bottom: 4px;
+
   font-size: 16px;
   font-weight: var(--font-weight-light);
-  margin-bottom: 4px;
-  margin-top: auto;
+  text-align: center;
 `
 
 Layout.propTypes = {

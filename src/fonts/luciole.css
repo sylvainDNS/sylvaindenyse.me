@@ -1,0 +1,31 @@
+@font-face {
+  font-family: Luciole;
+  src: url('./luciole-regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: Luciole;
+  src: url('./luciole-regularitalic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 400;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: Luciole;
+  src: url('./luciole-bold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 500;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: Luciole;
+  src: url('./luciole-bolditalic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 500;
+  font-display: fallback;
+}

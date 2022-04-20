@@ -10,8 +10,8 @@ import '../../fonts/opendyslexic.css'
 const globalStyles = css`
   html,
   body {
-    margin: 0;
     padding: 0;
+    margin: 0;
   }
 
   html {
@@ -28,17 +28,36 @@ const globalStyles = css`
     --font-weight-medium: 500;
 
     margin-left: calc(100vw - 100%);
-    background-color: var(--color-background);
 
-    font-size: ${19 / 16}rem;
     font-family: var(--font-family);
+    font-size: ${19 / 16}rem;
     font-weight: var(--font-weight-regular);
+
+    background-color: var(--color-background);
   }
 
   a {
     position: relative;
+
     color: var(--color-link);
     text-decoration: none;
+
+    &:after {
+      position: absolute;
+      top: calc(100% - 2px);
+      left: 50%;
+
+      width: 0%;
+      height: 1px;
+      content: '';
+
+      border-radius: 4px;
+
+      @media screen and (prefers-reduced-motion: reduce) {
+        transition: none;
+        transition-property: width, left, background-color, color;
+      }
+    }
 
     &:hover,
     &:focus {
@@ -49,21 +68,6 @@ const globalStyles = css`
         width: 80%;
         background-color: var(--color-link-hover);
       }
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      top: calc(100% - 2px);
-      left: 50%;
-
-      height: 1px;
-      width: 0%;
-
-      border-radius: 4px;
-
-      transition: 150ms ease-out;
-      transition-property: width, left, background-color, color;
     }
   }
 

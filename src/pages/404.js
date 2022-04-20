@@ -11,12 +11,9 @@ const NotFound = () => (
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-
+  flex-grow: 1;
   align-items: center;
   justify-content: center;
-
-  flex-grow: 1;
-
   text-align: center;
 `
 

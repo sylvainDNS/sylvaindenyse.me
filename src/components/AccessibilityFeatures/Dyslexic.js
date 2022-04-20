@@ -76,9 +76,9 @@ const Dyslexic = () => {
 }
 
 const IconStacker = styled.span`
-  font-size: ${13 / 19}rem;
-  height: 23.75px;
   width: 23.75px;
+  height: 23.75px;
+  font-size: ${13 / 19}rem;
 `
 IconStacker.defaultProps = { className: 'fa-stack' }
 

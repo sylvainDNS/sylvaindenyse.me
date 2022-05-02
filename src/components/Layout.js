@@ -2,16 +2,31 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import Navigation from './Navigation'
+import { graphql, useStaticQuery } from 'gatsby'
 
-const Layout = ({ children }) => (
-  <Wrapper>
-    <Navigation />
-    <Main>{children}</Main>
-    <Footer>
-      <p>© 2021 - Make IT more committed.</p>
-    </Footer>
-  </Wrapper>
-)
+const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      currentBuildDate {
+        currentDate
+      }
+    }
+  `)
+
+  const buildYear = new Date(
+    Date.parse(data.currentBuildDate.currentDate)
+  ).getFullYear()
+
+  return (
+    <Wrapper>
+      <Navigation />
+      <Main>{children}</Main>
+      <Footer>
+        <p>© {buildYear} — Nantes</p>
+      </Footer>
+    </Wrapper>
+  )
+}
 
 const Wrapper = styled.div`
   display: flex;

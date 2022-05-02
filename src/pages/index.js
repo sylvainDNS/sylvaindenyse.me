@@ -161,10 +161,11 @@ Item.propTypes = {
 
 const Home = () => (
   <Wrapper>
-    <SEO title="Welcome!" />
+    <SEO />
     <Avatar />
     <h1>Sylvain DENYSE</h1>
-    <h2>Full Stack Web Developer</h2>
+    <h2>Développeur Web</h2>
+    <h3>Front-End — Accessibilité — JavaScript</h3>
     <ul className="link-list">{links.map(Item)}</ul>
   </Wrapper>
 )

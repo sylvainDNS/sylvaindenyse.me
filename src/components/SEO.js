@@ -23,15 +23,15 @@ const SEO = ({
   } = site.siteMetadata
 
   const seo = {
-    title: title || defaultTitle,
+    title: title ? titleTemplate.replace('%s', title) : defaultTitle,
     description: description || defaultDescription,
     image: `${siteUrl}${image || defaultImage}`,
     url: `${siteUrl}${pathname}`,
   }
 
   return (
-    <Helmet title={seo.title} titleTemplate={titleTemplate}>
-      <html lang="en" />
+    <Helmet title={seo.title}>
+      <html lang="fr" />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       {seo.url && <meta property="og:url" content={seo.url} />}

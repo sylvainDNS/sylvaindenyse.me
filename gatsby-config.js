@@ -2,12 +2,16 @@ module.exports = {
   siteMetadata: {
     title: 'Sylvain DENYSE',
     titleTemplate: '%s · Sylvain DENYSE',
-    description: 'Personal website of a web developer.',
+    description: "Site web personnel d'un développeur web.",
     image: '/images/Avatar.jpg',
     twitterUsername: '@sylvaindenyse',
     siteUrl: `https://sylvaindenyse.me`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-build-date`,
+      options: { locale: 'fr' },
+    },
     'gatsby-plugin-eslint',
     'gatsby-plugin-emotion',
     'gatsby-plugin-fontawesome-css',
@@ -15,7 +19,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Sylvain DENYSE - Web Developer Designer',
+        name: 'Sylvain DENYSE — Développeur Web',
         short_name: 'Sylvain DENYSE',
         start_url: '/',
         background_color: '#eff4ff',

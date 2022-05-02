@@ -4,7 +4,7 @@ import { Link as DefaultLink } from 'gatsby'
 
 const navLinks = [
   { label: 'Blog', to: '/blog' },
-  { label: 'About me', to: '/resume' },
+  { label: 'Curriculum Vitae', to: '/resume' },
 ]
 
 const Navigation = () => {

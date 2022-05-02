@@ -4,7 +4,9 @@ import styled from '@emotion/styled'
 const NotFound = () => (
   <Wrapper>
     <h1>404</h1>
-    <p>Oops, seems like the page doesn&apos;t exist or the link is broken.</p>
+    <p>
+      Oups, il semble que la page n&apos;existe pas ou que le lien est cassé.
+    </p>
   </Wrapper>
 )
 

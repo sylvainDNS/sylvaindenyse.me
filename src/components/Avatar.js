@@ -11,7 +11,7 @@ const Avatar = ({ css: cssProps }) => (
     `}
     width={200}
     src="../images/avatar.jpg"
-    alt="A picture of me"
+    alt="Une photo de moi, dos à un coucher de soleil sur un littoral"
     formats={['auto', 'webp', 'avif']}
     quality={80}
   />

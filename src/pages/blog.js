@@ -10,8 +10,8 @@ const Content = styled.h1`
 
 const Blog = () => (
   <Content>
-    <SEO title="Blog posts" />
-    Coming soon...
+    <SEO title="Articles de blog" />
+    Bientôt disponible...
   </Content>
 )
 

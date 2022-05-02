@@ -4484,6 +4484,11 @@ dataloader@^1.4.0:
   resolved "https://registry.yarnpkg.com/dataloader/-/dataloader-1.4.0.tgz#bca11d867f5d3f1b9ed9f737bd15970c65dff5c8"
   integrity sha512-68s5jYdlvasItOJnCuI2Q9s4q98g0pCyL3HrcKJu8KNugUl8ahgmZYg38ysLTgQjjXX3H8CJLkAvWrclWfcalw==
 
+date-and-time@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/date-and-time/-/date-and-time-0.11.1.tgz#0c3c8b21811562c53345b497c5e1c731b12e99eb"
+  integrity sha512-+1JkWME+UWRpCfvE1T0Vfbw629Ego0IcfHH0qtP4KhAXs7IJT2qsg1hNePqZhyD8Wby46HlW393lSL5PZSzDsA==
+
 date-fns@^2.25.0:
   version "2.28.0"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.28.0.tgz#9570d656f5fc13143e50c975a3b6bbeb46cd08b2"
@@ -6013,6 +6018,13 @@ gatsby-parcel-config@^0.2.0:
     "@parcel/transformer-json" "^2.3.2"
     "@parcel/transformer-raw" "^2.3.2"
     "@parcel/transformer-react-refresh-wrap" "^2.3.2"
+
+gatsby-plugin-build-date@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-build-date/-/gatsby-plugin-build-date-1.0.0.tgz#2582133699c947adb0ec921f0d5e7e04f0ac4e25"
+  integrity sha512-XlR4w3mQqhRE241Kx4/0lFY78/TnY1IDqgvKzgk17RZUcM13QYk7GyuN5Ifx96NMbMEwUUeal4lDqSigfr2Ydw==
+  dependencies:
+    date-and-time "^0.11.1"
 
 gatsby-plugin-emotion@^7.1.0:
   version "7.11.0"

@@ -13,7 +13,7 @@ const Reset = () => {
   return (
     <Wrapper onClick={handleClick}>
       <FontAwesomeIcon icon={faRotateLeft} />
-      Reset to default font
+      Réinitialiser la police par défaut
     </Wrapper>
   )
 }

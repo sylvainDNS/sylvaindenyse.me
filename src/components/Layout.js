@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import Navigation from './Navigation'
-import AccessibilityFeatures from './AccessibilityFeatures'
+import AccessibilityPanel from './AccessibilityPanel'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
       <Footer>
         <p>© {buildYear} — Nantes</p>
       </Footer>
-      <AccessibilityFeatures />
+      <AccessibilityPanel />
     </Wrapper>
   )
 }
@@ -40,6 +40,7 @@ const Wrapper = styled.div`
 
   color: var(--color-text);
   background-color: var(--color-background);
+  isolation: isolate;
 `
 
 const Main = styled.main`

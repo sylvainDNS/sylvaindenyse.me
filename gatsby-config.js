@@ -33,6 +33,7 @@ module.exports = {
       },
     },
     'gatsby-plugin-mdx',
+    'gatsby-plugin-portal',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-sitemap',

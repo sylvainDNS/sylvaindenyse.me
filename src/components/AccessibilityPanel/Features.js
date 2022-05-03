@@ -4,18 +4,16 @@ import VisuallyImpaired from './VisuallyImpaired'
 import Dyslexic from './Dyslexic'
 import Reset from './Reset'
 
+const features = [VisuallyImpaired, Dyslexic, Reset]
+
 const Features = () => (
   <Wrapper>
     <ul>
-      <li>
-        <VisuallyImpaired />
-      </li>
-      <li>
-        <Dyslexic />
-      </li>
-      <li>
-        <Reset />
-      </li>
+      {features.map((Feature, index) => (
+        <li key={index}>
+          <Feature />
+        </li>
+      ))}
     </ul>
   </Wrapper>
 )

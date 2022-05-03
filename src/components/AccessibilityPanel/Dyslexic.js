@@ -70,7 +70,8 @@ const Dyslexic = () => {
           transform={{ rotate: 198, x: 1, y: -17 }}
         />
       </IconStacker>
-      {isDyslexicFont ? 'Disable' : 'Enable'} specific font for dyslexic
+      {isDyslexicFont ? 'Désactiver' : 'Activer'} la police d&apos;écriture pour
+      dyslexique
     </button>
   )
 }

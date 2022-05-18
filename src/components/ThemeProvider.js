@@ -28,7 +28,7 @@ const globalStyles = css`
     margin-left: calc(100vw - 100%);
     background-color: var(--color-background);
 
-    font-size: 19px;
+    font-size: ${19 / 16}rem;
     font-family: var(--font-family);
     font-weight: var(--font-weight-regular);
   }

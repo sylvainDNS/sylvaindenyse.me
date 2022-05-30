@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from '@emotion/styled'
+import FocusTrap from 'focus-trap-react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUniversalAccess } from '@fortawesome/free-solid-svg-icons'
 import Features from './Features'
@@ -14,15 +15,21 @@ const AccessibilityPanel = () => {
 
   const leftPosition = showFeatures ? 0 : '-350px'
 
+  const panelRef = useRef()
+  const handleOutsideFocus = useCallback(() => setShowFeatures(false), [])
+  useOutsideFocus(panelRef, handleOutsideFocus)
+
   return (
     <Portal>
-      <Wrapper style={{ '--left': leftPosition }}>
-        <Button onClick={handleToggle}>
-          <FontAwesomeIcon icon={faUniversalAccess} size="xl" />
-          Accessibilité
-        </Button>
-        <Features />
-      </Wrapper>
+      <FocusTrap active={showFeatures}>
+        <Wrapper ref={panelRef} style={{ '--left': leftPosition }}>
+          <Button onClick={handleToggle}>
+            <FontAwesomeIcon icon={faUniversalAccess} size="xl" />
+            Accessibilité
+          </Button>
+          <Features />
+        </Wrapper>
+      </FocusTrap>
     </Portal>
   )
 }
@@ -66,3 +73,24 @@ const Button = styled.button`
 `
 
 export default AccessibilityPanel
+
+const useOutsideFocus = (ref, callback) => {
+  useEffect(() => {
+    const onMouseDown = e => {
+      if (!ref.current) return
+
+      if (!ref.current.contains(e.target)) callback?.()
+    }
+    const onKeyDown = e => {
+      if (e.key === 'Escape') callback?.()
+    }
+
+    document.addEventListener('mousedown', onMouseDown)
+    document.addEventListener('keydown', onKeyDown)
+
+    return () => {
+      document.removeEventListener('mousedown', onMouseDown)
+      document.removeEventListener('keydown', onKeyDown)
+    }
+  }, [ref, callback])
+}

@@ -23,7 +23,7 @@ const Template = ({ data }) => {
       <SEO title={frontmatter.title} article={true} description={excerpt} />
       <Title>{frontmatter.title}</Title>
       <Meta>
-        Published on {frontmatter.date} · {timeToRead} minutes to read
+        Publié le {frontmatter.date} · {timeToRead} minutes de lecture
       </Meta>
       <Article>
         <MDXRenderer>{body}</MDXRenderer>
@@ -67,7 +67,7 @@ export const pageQuery = graphql`
     mdx(frontmatter: { path: { eq: $slug } }) {
       body
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "DD MMMM YYYY", locale: "fr")
         path
         title
       }

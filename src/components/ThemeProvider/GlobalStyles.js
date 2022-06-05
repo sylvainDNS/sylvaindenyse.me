@@ -15,12 +15,13 @@ const globalStyles = css`
   }
 
   html {
-    --color-background: #1d1f20;
-    --color-background-light: #2f3233;
-    --color-text: #eff4ff;
-    --color-link: #ef476f;
-    --color-link-hover: #ffbe0b;
-    --color-shadow: rgba(10, 10, 10, 0.3);
+    --color-background: hsl(200, 5%, 12%);
+    --color-background-light: hsl(195, 4%, 19%);
+    --color-text: hsl(221, 100%, 97%);
+    --color-link: hsl(346, 84%, 61%);
+    --color-link-hover: hsl(44, 100%, 52%);
+    --color-button-hover: hsl(346, 84%, 80%);
+    --color-shadow: hsla(0, 0%, 4%, 0.3);
 
     --font-family: Wotfard, Futura, sans-serif;
     --font-weight-light: 300;
@@ -98,6 +99,10 @@ const globalStyles = css`
     h4 {
       font-size: 22px;
     }
+  }
+
+  button {
+    font-family: inherit;
   }
 
   *,

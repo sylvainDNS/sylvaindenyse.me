@@ -3,6 +3,7 @@ import { css, Global } from '@emotion/react'
 import { FONT, useThemeState } from './context'
 import { isBrowser } from '../../utils'
 
+import '@reach/skip-nav/styles.css'
 import '../../fonts/wotfard.css'
 import '../../fonts/luciole.css'
 import '../../fonts/opendyslexic.css'

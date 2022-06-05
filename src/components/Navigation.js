@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import { Link as DefaultLink } from 'gatsby'
+import { SkipNavLink } from '@reach/skip-nav'
 
 const navLinks = [
   { label: 'Blog', to: '/blog' },
@@ -16,6 +17,8 @@ const Navigation = () => {
   return (
     <Wrapper style={style}>
       <Container>
+        <SkipNavLink tabIndex="1">Aller au contenu</SkipNavLink>
+
         <Nav>
           <HomeLink to="/">Sylvain DENYSE</HomeLink>
           <LinkList>

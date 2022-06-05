@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
+import { SkipNavContent } from '@reach/skip-nav'
 import Navigation from './Navigation'
 import AccessibilityPanel from './AccessibilityPanel'
 
@@ -21,10 +22,14 @@ const Layout = ({ children }) => {
   return (
     <Wrapper>
       <Navigation />
+
+      <SkipNavContent />
       <Main>{children}</Main>
+
       <Footer>
         <p>© {buildYear} — Nantes</p>
       </Footer>
+
       <AccessibilityPanel />
     </Wrapper>
   )

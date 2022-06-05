@@ -1,33 +1,56 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import styled from '@emotion/styled'
 import FocusTrap from 'focus-trap-react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUniversalAccess } from '@fortawesome/free-solid-svg-icons'
+import { useMediaQuery } from '@react-hook/media-query'
 import Features from './Features'
 import Portal from '../Portal'
+import ToggleButton from './ToggleButton'
+import CloseButton from './CloseButton'
+
+const maxWidth = '500px'
 
 const AccessibilityPanel = () => {
   const [showFeatures, setShowFeatures] = useState(false)
 
-  const handleToggle = () => {
-    setShowFeatures(bool => !bool)
-  }
+  const matches = useMediaQuery(`only screen and (max-width: ${maxWidth})`)
 
-  const leftPosition = showFeatures ? 0 : '-350px'
+  const displayCloseButton = showFeatures && matches
+  const displayToggleButton = !showFeatures || !displayCloseButton
 
   const panelRef = useRef()
   const handleOutsideFocus = useCallback(() => setShowFeatures(false), [])
   useOutsideFocus(panelRef, handleOutsideFocus)
 
+  const handleToggle = () => {
+    setShowFeatures(bool => !bool)
+  }
+
+  const handleClose = () => {
+    setShowFeatures(false)
+  }
+
+  const initialFocus = () => document.getElementById('visually-impaired')
+
   return (
     <Portal>
-      <FocusTrap active={showFeatures}>
-        <Wrapper ref={panelRef} style={{ '--left': leftPosition }}>
-          <Button onClick={handleToggle}>
-            <FontAwesomeIcon icon={faUniversalAccess} size="xl" />
-            Accessibilité
-          </Button>
-          <Features />
+      <FocusTrap active={showFeatures} focusTrapOptions={{ initialFocus }}>
+        <Wrapper
+          ref={panelRef}
+          isOpened={showFeatures}
+          style={{ '--max-width': maxWidth }}
+        >
+          <Features aria-hidden={!showFeatures} />
+          <ToggleButton
+            onClick={handleToggle}
+            aria-hidden={!displayToggleButton}
+            aria-pressed={showFeatures}
+          />
+          {matches ? (
+            <CloseButton
+              onClick={handleClose}
+              aria-hidden={!displayCloseButton}
+            />
+          ) : null}
         </Wrapper>
       </FocusTrap>
     </Portal>
@@ -35,41 +58,50 @@ const AccessibilityPanel = () => {
 }
 
 const Wrapper = styled.div`
+  --panel-width: 400px;
+
   position: fixed;
   top: 0;
   bottom: 0;
-  left: var(--left);
+  left: calc(var(--panel-width) * -1);
 
   display: grid;
   grid-template-areas: 'features toggle-button';
-  grid-template-columns: 350px 30px;
+  grid-template-columns: var(--panel-width) 30px;
   align-items: center;
 
-  font-size: ${16 / 19}rem;
+  font-size: ${13 / 19}rem;
   color: var(--color-text);
+
+  transform: translateX(${p => (p.isOpened ? 'var(--panel-width)' : 0)});
 
   button {
     display: grid;
-    grid-template-columns: 30px 1fr;
+    gap: 10px;
     align-items: center;
     justify-items: center;
-
     color: inherit;
     background-color: var(--color-background-light);
-
     border: none;
+
+    &:hover,
+    &:focus {
+      font-weight: var(--font-weight-medium);
+      color: var(--color-button-hover);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      transition: color 0.3s ease-out;
+    }
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    transition: left 0.3s ease-out;
+    transition: transform 0.3s ease-out;
   }
-`
 
-const Button = styled.button`
-  grid-area: toggle-button;
-  height: 140px;
-  border-radius: 0 4px 4px 0;
-  writing-mode: sideways-rl;
+  @media (max-width: ${maxWidth}) {
+    --panel-width: 100vw;
+  }
 `
 
 export default AccessibilityPanel

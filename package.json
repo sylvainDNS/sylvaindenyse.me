@@ -27,6 +27,7 @@
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@react-hook/media-query": "^1.1.1",
     "focus-trap-react": "^8.11.2",
     "gatsby": "^4.1.4",
     "gatsby-plugin-build-date": "^1.0.0",

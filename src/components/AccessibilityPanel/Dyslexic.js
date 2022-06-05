@@ -17,8 +17,9 @@ import {
   useThemeDispatch,
   useThemeSelector,
 } from '../ThemeProvider/context'
+import VisuallyHidden from '../VisuallyHidden'
 
-const Dyslexic = () => {
+const Dyslexic = props => {
   const dispatch = useThemeDispatch()
   const handleClick = () => {
     dispatch(actions.toggleDyslexicFont())
@@ -27,7 +28,7 @@ const Dyslexic = () => {
   const isDyslexicFont = useThemeSelector(selectors.isDyslexicFont)
 
   return (
-    <button onClick={handleClick} aria-pressed={isDyslexicFont}>
+    <button onClick={handleClick} aria-pressed={isDyslexicFont} {...props}>
       <IconStacker>
         <FontAwesomeIcon
           icon={faD}
@@ -70,11 +71,17 @@ const Dyslexic = () => {
           transform={{ rotate: 198, x: 1, y: -17 }}
         />
       </IconStacker>
-      {isDyslexicFont ? 'Désactiver' : 'Activer'} la police d&apos;écriture pour
-      dyslexique
+      <VisuallyHidden>{enableLabel}</VisuallyHidden>
+      <span aria-hidden="true">
+        {isDyslexicFont ? disableLabel : enableLabel}
+      </span>
     </button>
   )
 }
+
+const getLabel = verb => `${verb} la police d'écriture pour dyslexique`
+const enableLabel = getLabel('Activer')
+const disableLabel = getLabel('Désactiver')
 
 const IconStacker = styled.span`
   width: 23.75px;

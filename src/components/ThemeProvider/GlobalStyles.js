@@ -15,7 +15,13 @@ const globalStyles = css`
     margin: 0;
   }
 
-  html {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  :root {
     --color-background: hsl(200, 5%, 12%);
     --color-background-light: hsl(195, 4%, 19%);
     --color-text: hsl(221, 100%, 97%);

@@ -58,7 +58,7 @@ const AccessibilityPanel = () => {
 }
 
 const Wrapper = styled.div`
-  --panel-width: 400px;
+  --panel-width: 440px;
 
   position: fixed;
   top: 0;
@@ -70,7 +70,7 @@ const Wrapper = styled.div`
   grid-template-columns: var(--panel-width) 30px;
   align-items: center;
 
-  font-size: ${13 / 19}rem;
+  font-size: ${16 / 19}rem;
   color: var(--color-text);
 
   transform: translateX(${p => (p.isOpened ? 'var(--panel-width)' : 0)});
@@ -80,6 +80,7 @@ const Wrapper = styled.div`
     gap: 10px;
     align-items: center;
     justify-items: center;
+    font-size: inherit;
     color: inherit;
     background-color: var(--color-background-light);
     border: none;

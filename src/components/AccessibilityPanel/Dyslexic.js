@@ -28,7 +28,7 @@ const Dyslexic = props => {
   const isDyslexicFont = useThemeSelector(selectors.isDyslexicFont)
 
   return (
-    <button onClick={handleClick} aria-pressed={isDyslexicFont} {...props}>
+    <Wrapper onClick={handleClick} aria-pressed={isDyslexicFont} {...props}>
       <IconStacker>
         <FontAwesomeIcon
           icon={faD}
@@ -75,13 +75,17 @@ const Dyslexic = props => {
       <span aria-hidden="true">
         {isDyslexicFont ? disableLabel : enableLabel}
       </span>
-    </button>
+    </Wrapper>
   )
 }
 
 const getLabel = verb => `${verb} la police d'écriture pour dyslexique`
 const enableLabel = getLabel('Activer')
 const disableLabel = getLabel('Désactiver')
+
+const Wrapper = styled.button`
+  font-family: var(--font-family-opendyslexic);
+`
 
 const IconStacker = styled.span`
   width: 23.75px;

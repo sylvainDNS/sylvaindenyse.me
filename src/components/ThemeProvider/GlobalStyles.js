@@ -30,7 +30,12 @@ const globalStyles = css`
     --color-button-hover: hsl(346, 84%, 80%);
     --color-shadow: hsla(0, 0%, 4%, 0.3);
 
-    --font-family: Wotfard, Futura, sans-serif;
+    --font-family-fallback: Futura, sans-serif;
+    --font-family-wotfard: Wotfard, var(--font-family-fallback);
+    --font-family-opendyslexic: OpenDyslexic, var(--font-family-fallback);
+    --font-family-luciole: Luciole, var(--font-family-fallback);
+
+    --font-family: var(--font-family-wotfard);
     --font-weight-light: 300;
     --font-weight-regular: 400;
     --font-weight-medium: 500;
@@ -132,20 +137,19 @@ const GlobalStyles = () => {
   if (isBrowser) {
     window.localStorage.setItem('font', state.font)
 
-    const font = FONT_FAMILY[state.font]
+    const fontFamily = FONT_FAMILY[state.font]
 
     const root = window.document.documentElement
-    root.style.setProperty('--font-family', `${font}${fallback}`)
+    root.style.setProperty('--font-family', `var(${fontFamily})`)
   }
 
   return <Global styles={globalStyles} />
 }
 
-const fallback = ', Futura, sans-serif'
 const FONT_FAMILY = {
-  [FONT.DEFAULT]: 'Wotfard',
-  [FONT.DYSLEXIC]: 'OpenDyslexic',
-  [FONT.VISUALLY_IMPAIRED]: 'Luciole',
+  [FONT.DEFAULT]: '--font-family-wotfard',
+  [FONT.DYSLEXIC]: '--font-family-opendyslexic',
+  [FONT.VISUALLY_IMPAIRED]: '--font-family-luciole',
 }
 
 export default GlobalStyles

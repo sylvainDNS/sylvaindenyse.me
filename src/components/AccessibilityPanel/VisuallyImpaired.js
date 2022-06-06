@@ -8,6 +8,7 @@ import {
   useThemeSelector,
 } from '../ThemeProvider/context'
 import VisuallyHidden from '../VisuallyHidden'
+import styled from '@emotion/styled'
 
 const VisuallyImpaired = props => {
   const dispatch = useThemeDispatch()
@@ -20,7 +21,7 @@ const VisuallyImpaired = props => {
   )
 
   return (
-    <button
+    <Wrapper
       id="visually-impaired"
       onClick={handleClick}
       aria-pressed={isVisuallyImpairedFont}
@@ -31,12 +32,16 @@ const VisuallyImpaired = props => {
       <span aria-hidden="true">
         {isVisuallyImpairedFont ? disableLabel : enableLabel}
       </span>
-    </button>
+    </Wrapper>
   )
 }
 
 const getLabel = verb => `${verb} la police d'écriture pour malvoyant`
 const enableLabel = getLabel('Activer')
 const disableLabel = getLabel('Désactiver')
+
+const Wrapper = styled.button`
+  font-family: var(--font-family-luciole);
+`
 
 export default VisuallyImpaired

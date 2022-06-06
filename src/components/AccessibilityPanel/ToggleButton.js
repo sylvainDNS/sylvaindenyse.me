@@ -18,7 +18,8 @@ const ToggleButton = ({ 'aria-hidden': isHidden, ...delegated }) => (
 const Wrapper = styled.button`
   grid-area: toggle-button;
   grid-template-columns: 30px 1fr;
-  height: 140px;
+  height: 160px;
+  padding: 12px 0;
   border-radius: 0 4px 4px 0;
   writing-mode: sideways-rl;
 `

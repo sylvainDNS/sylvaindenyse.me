@@ -37,7 +37,7 @@ const Navigation = () => {
 }
 
 const Wrapper = styled.header`
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1;
 

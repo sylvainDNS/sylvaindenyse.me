@@ -8,7 +8,7 @@ import VisuallyHidden from '../VisuallyHidden'
 const ToggleButton = ({ 'aria-hidden': isHidden, ...delegated }) => (
   <Wrapper aria-hidden={isHidden} tabIndex={isHidden ? -1 : 2} {...delegated}>
     <FontAwesomeIcon icon={faUniversalAccess} size="xl" />
-    <span aria-hidden="true">Accessibilité</span>
+    <Content aria-hidden="true">Accessibilité</Content>
     <VisuallyHidden>
       Afficher les fonctionnalités d&apos;accessibilité
     </VisuallyHidden>
@@ -17,11 +17,16 @@ const ToggleButton = ({ 'aria-hidden': isHidden, ...delegated }) => (
 
 const Wrapper = styled.button`
   grid-area: toggle-button;
-  grid-template-columns: 30px 1fr;
+  grid-template-rows: 30px 1fr;
+  grid-template-columns: 30px;
   height: 160px;
   padding: 12px 0;
   border-radius: 0 4px 4px 0;
-  writing-mode: sideways-rl;
+`
+
+const Content = styled.span`
+  grid-area: 2 / 1;
+  transform: rotate(90deg);
 `
 
 ToggleButton.propTypes = {

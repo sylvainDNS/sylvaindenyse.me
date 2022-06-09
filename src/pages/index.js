@@ -96,8 +96,8 @@ const Wrapper = styled.div`
 
     &:before {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 9px;
+      left: 0;
       width: calc(0.875em - 1px);
       height: calc(0.875em - 1px);
       content: '';
@@ -109,7 +109,7 @@ const Wrapper = styled.div`
         #d6249f 60%,
         #285aeb 90%
       );
-      border-radius: 12px;
+      border-radius: 8px;
       opacity: 0;
 
       @media screen and (prefers-reduced-motion: reduce) {

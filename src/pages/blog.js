@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 import SEO from '../components/SEO'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const title = 'Articles de blog'
 
@@ -26,9 +27,13 @@ const Blog = ({ data }) => {
           <Post key={node.id} role="listitem">
             <Link to={node.frontmatter.path}>
               <Content>
+                <GatsbyImage
+                  image={getImage(node.frontmatter.thumbnail)}
+                  aria-hidden="true"
+                />
                 <h3>{node.frontmatter.title}</h3>
                 <p>{node.excerpt}</p>
-                <ReadMore>Lire plus...</ReadMore>
+                <ReadMore>Lire plus</ReadMore>
                 <Arrows>
                   <FontAwesomeIcon icon={faAngleRight} size="xs" />
                   <FontAwesomeIcon icon={faAngleRight} size="xs" />
@@ -55,8 +60,8 @@ const Head = styled.div`
 `
 
 const Posts = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 32px;
 `
 
@@ -97,6 +102,7 @@ const Post = styled.article`
 
   a {
     display: block;
+    height: 100%;
     color: var(--color-text);
     background-color: var(--color-background-light);
     border-radius: 8px;
@@ -137,10 +143,12 @@ const Post = styled.article`
 
 const Content = styled.div`
   padding: 10px 16px;
+  font-weight: var(--font-weight-light);
 `
 
 const ReadMore = styled.p`
   display: inline-block;
+  font-weight: var(--font-weight-medium);
 `
 
 export const pageQuery = graphql`
@@ -156,6 +164,11 @@ export const pageQuery = graphql`
           frontmatter {
             title
             path
+            thumbnail {
+              childImageSharp {
+                gatsbyImageData(layout: FULL_WIDTH, quality: 50)
+              }
+            }
           }
         }
       }
@@ -172,6 +185,7 @@ Blog.propTypes = {
             frontmatter: PropTypes.shape({
               title: PropTypes.string,
               path: PropTypes.string,
+              thumbnail: PropTypes.shape(),
             }),
             id: PropTypes.string,
           }),

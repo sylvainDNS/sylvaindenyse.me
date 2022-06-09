@@ -6,12 +6,14 @@ import { MDXProvider } from '@mdx-js/react'
 import styled from '@emotion/styled'
 import SEO from '../components/SEO'
 import CodeBlock from '../components/CodeBlock'
+import Aside from '../components/Aside'
 
 const getTimeToRead = (words, wordsPerMinute = 180) =>
   Math.round(words / wordsPerMinute) || 1
 
 const components = {
   pre: CodeBlock,
+  aside: Aside,
 }
 
 const Template = ({ data }) => {
@@ -52,7 +54,7 @@ const Meta = styled.p`
 `
 
 const Article = styled.article`
-  p {
+  & > p {
     margin-top: 1rem;
 
     &:first-of-type {

@@ -33,7 +33,9 @@ const Template = ({ data }) => {
       </Meta>
       <Article>
         <MDXProvider components={components}>
-          <MDXRenderer>{body}</MDXRenderer>
+          <MDXRenderer localImages={frontmatter.embeddedImagesLocal}>
+            {body}
+          </MDXRenderer>
         </MDXProvider>
       </Article>
     </section>
@@ -84,6 +86,17 @@ const Article = styled.article`
       opacity: 0.8;
     }
   }
+
+  .gatsby-image-wrapper.gatsby-image-wrapper-constrained {
+    display: block;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+
+    img {
+      width: auto;
+    }
+  }
 `
 
 export const pageQuery = graphql`
@@ -94,6 +107,11 @@ export const pageQuery = graphql`
         date(formatString: "DD MMMM YYYY", locale: "fr")
         path
         title
+        embeddedImagesLocal {
+          childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED)
+          }
+        }
       }
       wordCount {
         words
@@ -109,6 +127,7 @@ Template.propTypes = {
       frontmatter: PropTypes.shape({
         title: PropTypes.string,
         date: PropTypes.string,
+        embeddedImagesLocal: PropTypes.array,
       }),
       body: PropTypes.string,
       wordCount: PropTypes.shape({

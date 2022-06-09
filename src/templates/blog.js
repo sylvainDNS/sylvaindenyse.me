@@ -87,6 +87,22 @@ const Article = styled.article`
     }
   }
 
+  blockquote {
+    position: relative;
+    font-style: italic;
+    font-weight: var(--font-weight-light);
+
+    &:before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -16px;
+      width: 4px;
+      content: '';
+      background-color: var(--color-background-light);
+    }
+  }
+
   .gatsby-image-wrapper.gatsby-image-wrapper-constrained {
     display: block;
     width: 100%;

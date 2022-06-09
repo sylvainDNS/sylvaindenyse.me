@@ -1,0 +1,271 @@
+---
+path: '/blog/yousign-audit-accessibilite'
+date: '2022-06-11'
+title: "Audit d'accessibilité de la landing page de l'application Yousign"
+published: true
+thumbnail: ./images/landing.png
+embeddedImagesLocal:
+  - ./images/landing.png
+  - ./images/landing-tabbing-order.png
+  - ./images/landing-help-button.png
+  - ./images/landing-button-focus.png
+  - ./images/landing-link-focus.png
+  - ./images/landing-hidden-decoration.png
+---
+
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+
+import landingButtonHover from './images/landing-button-hover.gif'
+import landingLinkHover from './images/landing-link-hover.gif'
+import screenReaderIssueMp4 from './videos/screen-read-issue.mp4'
+import screenReaderIssueWebm from './videos/screen-read-issue.webm'
+
+Dans le cadre de la recherche d'une nouvelle entreprise à rejoindre, j'ai réalisé un audit de la _landing page_ de l'application web développée par Yousign. Elle permet aux clients de gérer les différents documents que leurs partenaires devront signer.
+
+Ce document ne vise pas à critiquer le travail réalisé par les équipes. Il a pour but d'analyser la mise en place des bonnes pratiques selon des éléments sourcés, afin de construire et améliorer ensemble un web plus inclusif.
+
+Yousign est une entreprise développant une application qui permet la signature de document en ligne et de manière sécurisée. L'entreprise a réalisé en 2021 une levée de fond de 30 millions d’euros, et a pour objectif de devenir le leader européen de la signature électronique.
+
+La version de l'application testée est la `2022.05.25.0`.
+
+### Ordre de tabulation
+
+<GatsbyImage
+  image={getImage(props.localImages[0])}
+  alt="Capture d'écran de la page d'accueil après première connexion"
+/>
+
+Après avoir créé mon compte et m'être identifié à l'application, une landing page m'accueille. Elle est composée d'une fenêtre modale m'incitant à confirmer mon compte via l'email envoyé sur mon adresse email.
+
+Selon les recommandations de la <abbr title="World Wide Web Consortium">[W3C](https://www.w3.org/TR/wai-aria-practices-1.2/#keyboard-interaction-7)</abbr> lors de l'utilisation d'une fenêtre modale, la boucle de focus doit être verrouillée sur cette dernière. Aucun élément présent en dehors de la modale ne doit être accessible via le clavier à l'aide de <kbd>Tab</kbd>.
+
+En utilisant l'outil d'accessibilité de _Firefox Developer Edition_, nous pouvons penser que la préconisation n'est pas respectée.
+
+<GatsbyImage
+  image={getImage(props.localImages[1])}
+  alt="Capture d'écran de la page d'accueil après première connexion en ayant activé l'outil d'accessibilité de Firefox"
+/>
+
+Toutefois, l'application web utilise un _focus trap_, une méthode pour bloquer le focus dans une zone donnée. Les seuls éléments accessibles via le clavier sont :
+
+- le bouton _"Resend email"_
+- le lien _"log in to another account"_
+
+L'application respecte ainsi le <a href="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/methode-rgaa/criteres/#crit-12-8" target="__blank">critère 12.8</a> du <abbr title="Référentiel général d'amélioration de l'accessibilité">RGAA</abbr> :
+
+<blockquote cite="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/methode-rgaa/criteres/#crit-12-8">
+  Dans chaque page web, l’ordre de tabulation est-il cohérent ?
+</blockquote>
+
+Cependant, un élément accessible via le pointeur ne l'est pas à l'aide du clavier : le bouton d'accès à l'aide en ligne.
+
+<GatsbyImage
+  image={getImage(props.localImages[2])}
+  alt="Capture d'écran du bouton d'accès à l'aide en ligne"
+/>
+
+Ce bouton devrait lui aussi être enveloppé dans le _focus trap_ (il s'agit a priori d'un bouton mis à disposition par un service tiers, _Stonly_, ce qui peut rendre la tâche plus compliquée que prévue).
+
+### Visibilité du survol et du focus
+
+Un changement de style des boutons et des liens est attendu au survol et au focus de l'élément afin de situer l'utilisateur et de l'informer si des actions sont possibles.
+
+#### Boutons
+
+<img
+  src={landingButtonHover}
+  alt="Capture d'écran animée du survol d'un bouton"
+/>
+
+Un changement de style est notable, mais je ne sais pas si je l'aurais noté sans la présence de l'inspecteur d'élément de mon navigateur : l'opacité de l'élément est définie à 80&nbsp;% au survol.
+
+Le style de focus de l'élément utilise quant à lui le style par défaut du navigateur.
+
+<GatsbyImage
+  image={getImage(props.localImages[3])}
+  alt="Capture d'écran du focus d'un bouton"
+/>
+
+Le bouton d'accès à l'aide ne dispose d'aucun style de survol ou de focus.
+
+<GatsbyImage
+  image={getImage(props.localImages[2])}
+  alt="Capture d'écran du bouton d'accès à l'aide en ligne"
+/>
+
+#### Lien
+
+<img src={landingLinkHover} alt="Capture d'écran animée du survol d'un lien" />
+
+Le style du survol de lien est le même que celui utilisé pour les boutons.
+
+<GatsbyImage
+  image={getImage(props.localImages[4])}
+  alt="Capture d'écran du focus d'un bouton"
+/>
+
+En revanche, le style par défaut du navigateur du focus du lien est surchargé :
+
+```css
+outline: currentcolor none 0px;
+```
+
+Le changement du style au survol est régi par le <a href="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/methode-rgaa/criteres/#crit-10-14" target="__blank">critère 10.14</a> du <abbr title="Référentiel général d'amélioration de l'accessibilité">RGAA</abbr> :
+
+<blockquote cite="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/methode-rgaa/criteres/#crit-10-14">
+  Dans chaque page web, les contenus additionnels apparaissant via les styles
+  CSS uniquement peuvent-ils être rendus visibles au clavier et par tout
+  dispositif de pointage ?
+</blockquote>
+
+Ce critère est respecté partiellement (bouton d'aide), et l'intensité du changement visuel peut être discutable pour une personne déficiente visuelle.
+
+Le changement du style au focus est régi par le <a href="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/methode-rgaa/criteres/#crit-10-7" target="__blank">critère 10.7</a> du <abbr title="Référentiel général d'amélioration de l'accessibilité">RGAA</abbr> :
+
+<blockquote cite="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/methode-rgaa/criteres/#crit-10-7">
+  Dans chaque page web, pour chaque élément recevant le focus, la prise de focus
+  est-elle visible ?
+</blockquote>
+
+Ce critère n'est pas respecté pour lien. Au vu de la déclaration CSS citée ci-dessus et la présence de la valeur `currentColor`, je suppose qu'il s'agit d'un oubli.
+
+### Lecteur d'écran
+
+#### Images de décoration
+
+Selon le <a href="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/methode-rgaa/criteres/#crit-1-2" target="__blank">critère 1.2</a> du <abbr title="Référentiel général d'amélioration de l'accessibilité">RGAA</abbr> :
+
+<blockquote cite="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/methode-rgaa/criteres/#crit-1-2">
+  Chaque image de décoration est-elle correctement ignorée par les technologies
+  d’assistance ?
+</blockquote>
+
+<GatsbyImage
+  image={getImage(props.localImages[5])}
+  alt="Capture d'écran des illustrations de la fenêtre modale"
+/>
+
+L'image d'illustration et l’icône présentes dans la fenêtre modale présentent tous deux l'attribut HTML `aria-hidden="true"`. Cet attribut permet d'omettre la lecture de ces éléments par les technologies de lecture d'écran.  
+En revanche, le `svg` du widget _Stonly_ ne possède pas cette propriété.
+
+#### Lecture du contenu
+
+Cet attribut est également utilisé sur le nœud principal (<code><div&nbsp;id="root"&nbsp;/></code>) de l'application pour que la modal soit le seul élément lisible. Malheureusement, la modale est un des enfants du nœud principal, et est donc omise par les lecteurs d'écrans.
+
+Visionnez la vidéo ci-dessous pour mieux comprendre le problème en utilisant un lecteur d'écran. L'environnement de test était le suivant :
+
+- Système d'exploitation : Windows 10 21H2
+- Navigateur : Firefox 100.0.2
+- Lecteur d'écran : NVDA 2022.1
+
+<video width="640" height="360" controls>
+  <source src={screenReaderIssueWebm} type="video/webm" />
+  <source src={screenReaderIssueMp4} type="video/mp4" />
+</video>
+
+La dépendance [`react-modal`](https://www.npmjs.com/package/react-modal) semble être utilisée pour gérer la modale et cause probablement ce problème.  
+En effet, il est référencé sur le [GitHub du projet](https://github.com/reactjs/react-modal/issues/359#issuecomment-288586858). Les contributeurs préconisent de suivre la documentation à cette adresse : [react-modal Documentation : Accessibility](http://reactcommunity.org/react-modal/accessibility/)
+
+Il s'agit d'un problème majeur puisqu'il casse totalement l'accessibilité de l'application, mais semble relativement simple à corriger.
+
+### Sémantique HTML
+
+La sémantique HTML est pauvre dans la conception de cette fenêtre modale. Voici un résumé des éléments HTML utilisées (hors médias) :
+
+<table>
+  <caption>
+    Décompte des différents éléments HTML utilisé pour construire la modale
+    (hors éléments de <code>react-modal</code>)
+  </caption>
+  <thead>
+    <tr>
+      <th>Balise</th>
+      <th>Nombre d'occurrences</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>&lt;div /></code>
+      </td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;a /></code>
+      </td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;button /></code>
+      </td>
+      <td>1</td>
+    </tr>
+  </tbody>
+
+</table>
+
+Au-delà de permettre aux développeur·euse·s de mieux comprendre le code HTML, utiliser une plus grande variété d'éléments permet aux technologies d'assistance de mieux restituer à l'utilisateur la page consultée. La plupart des éléments HTML possèdent des rôles implicites. Ces rôles fournissent du sens sémantique aux éléments, et peuvent également être définis manuellement par le développeur·euse.
+
+<aside>
+  Pour en savoir plus sur les rôles&nbsp;:&nbsp;
+  <a href="https://developer.mozilla.org/fr/docs/Web/HTML/Element">
+    MDN Web Docs : WAI-ARIA Roles
+  </a>
+</aside>
+
+Une réécriture (simplifiée) utilisant une plus large sémantique pourrait ressembler à ça :
+
+```html
+<div role="dialog" aria-modal="true" aria-labelledby="landing-modal">
+  <svg>...</svg>
+  <h2 id="landing-modal">Congratulations Foo, your account has been set!</h2>
+  <p>
+    We sent an email to you at kaletol788@akapple.com, it has a magic link
+    that'll sign you in.
+  </p>
+  <p role="alert">
+    <svg>...</svg>
+    Open your mailbox to start the new signature experience
+  </p>
+  <p>
+    Didn't receive your link? <br />
+    <button type="button">Resend email</button> or
+    <a href="#">log in to another account</a>
+  </p>
+</div>
+```
+
+### Changement de taille de police
+
+Certains utilisateur·rice·s, déficients visuels, ont besoin de changer la taille de ce qui est affiché à l'écran. Ils peuvent pour cela effectuer un zoom directement dans le navigateur. L'application réagit très bien à ce comportement : la disposition passe automatiquement en mode mobile.
+
+Toutefois, la définition du niveau de zoom est propre à chaque site visité. Afin d'éviter de devoir zoomer sur chaque nouveau site consulté, l'utilisateur peut définir une taille de police par défaut supérieure à la normale (`16px`) dans les options de son navigateur.
+
+Pour ne pas casser l'utilisation de cette fonctionnalité, les développeur·euse·s doivent veiller à utiliser une unité relative (`em` ou `rem`) pour définir les tailles de police. J'ai une préférence pour l'utilisation des `rem` qui tient seulement compte de la taille de police de l'élément racine, à l'inverse des `em` qui tiennent compte de la taille de police de l'élément parent.
+
+<aside>
+  Pour aller plus loin sur le choix d'une unité&nbsp;:&nbsp;
+  <a href="https://www.joshwcomeau.com/css/surprising-truth-about-pixels-and-accessibility/">
+    The Surprising Truth About Pixels and Accessibility
+  </a>
+</aside>
+
+Toutes les tailles de polices de l'application sont définies en pixel. Heureusement, la mise en place de cette préconisation sera facile : l'application utilise des [_css customs properties_](https://developer.mozilla.org/en-US/docs/Web/CSS/--*) ! Le changement sera donc à réaliser à un seul endroit dans le code.
+
+## Commentaire
+
+Selon la [loi « handicap » de 2005](https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000809647/) (et les [nombreux décrets](https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000038811937) qui l'ont suivie), les applications mobiles et progiciels doivent attester d'un niveau d'accessibilité satisfaisant à compter du 23 juin 2021. Cette mesure s'applique également aux entreprises privées, mais seulement celles réalisant un chiffre d'affaire supérieur à 250 millions d'euros, ce qui n'est pas le cas de Yousign.  
+Toutefois, Yousign est amené à mettre son application de signature en ligne à la portée de tous, et se doit d'être actifs sur ces sujets. Le respect des différents critères du <abbr title="Référentiel général d'amélioration de l'accessibilité">RGAA</abbr> peut également mener à l'ouverture de nouveaux marchés ayant ce prérequis (marchés publics, <abbr title="Organisation non gouvernementale">ONG</abbr>, ...)
+
+L'accessibilité est l'affaire de tous (<abbr title="Product Owner">PO</abbr>, designer·euse, développeur·euse, ...), et doit être pensée tout au long du processus de conception et de réalisation de l'application. L'inclusion de tous et notamment des personnes en situation de handicap, est une valeur importante à mes yeux que j'essaie de défendre au quotidien. Ce mini-audit révèle que Yousign réalise déjà des efforts dans ce sens, mais il est possible d'aller plus loin et je serais ravi d'y contribuer.
+
+## Bonus
+
+En réalisant ce mini-audit, j'ai noté l'utilisation d'éléments que j'ai apprécié :
+
+- Utilisation de [_React Portals_](https://reactjs.org/docs/portals.html), permettant d'utiliser l'ordre de rendu naturel du DOM pour gérer les empilements des éléments graphiques
+- Utilisation d'une bibliothèque de composants _headless_ ([Radix UI](https://www.radix-ui.com/)), permettant une meilleure accessibilité sur les composants customs
+- Large utilisation des _css customs properties_, permettant une meilleure maintenabilité et gestion d'un thème
+- Utilisation de l'unité de couleur _hsl_, qui est la plus intuitive pour les développeur·euse·s.

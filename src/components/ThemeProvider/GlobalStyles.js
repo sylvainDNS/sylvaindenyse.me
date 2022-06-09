@@ -51,7 +51,6 @@ const globalStyles = css`
 
   a {
     position: relative;
-
     color: var(--color-link);
     text-decoration: none;
 
@@ -66,8 +65,8 @@ const globalStyles = css`
 
       border-radius: 4px;
 
-      @media screen and (prefers-reduced-motion: reduce) {
-        transition: none;
+      @media screen and (prefers-reduced-motion: no-preference) {
+        transition: 150ms ease-out;
         transition-property: width, left, background-color, color;
       }
     }

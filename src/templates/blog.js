@@ -7,6 +7,7 @@ import styled from '@emotion/styled'
 import SEO from '../components/SEO'
 import CodeBlock from '../components/CodeBlock'
 import Aside from '../components/Aside'
+import ExternalLink from '../components/ExternalLink'
 
 const getTimeToRead = (words, wordsPerMinute = 180) =>
   Math.round(words / wordsPerMinute) || 1
@@ -14,6 +15,7 @@ const getTimeToRead = (words, wordsPerMinute = 180) =>
 const components = {
   pre: CodeBlock,
   aside: Aside,
+  a: ExternalLink,
 }
 
 const Template = ({ data }) => {

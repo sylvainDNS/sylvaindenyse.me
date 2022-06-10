@@ -9,7 +9,7 @@ import CodeBlock from '../components/CodeBlock'
 import Aside from '../components/Aside'
 import ExternalLink from '../components/ExternalLink'
 
-const getTimeToRead = (words, wordsPerMinute = 180) =>
+const getTimeToRead = (words, wordsPerMinute = 110) =>
   Math.round(words / wordsPerMinute) || 1
 
 const components = {

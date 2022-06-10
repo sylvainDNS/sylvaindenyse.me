@@ -28,7 +28,7 @@ Yousign est une entreprise développant une application qui permet la signature 
 
 La version de l'application testée est la `2022.05.25.0`.
 
-### Ordre de tabulation
+## Ordre de tabulation
 
 <GatsbyImage
   image={getImage(props.localImages[0])}
@@ -66,11 +66,11 @@ Cependant, un élément accessible via le pointeur ne l'est pas à l'aide du cla
 
 Ce bouton devrait lui aussi être enveloppé dans le _focus trap_ (il s'agit a priori d'un bouton mis à disposition par un service tiers, _Stonly_, ce qui peut rendre la tâche plus compliquée que prévue).
 
-### Visibilité du survol et du focus
+## Visibilité du survol et du focus
 
 Un changement de style des boutons et des liens est attendu au survol et au focus de l'élément afin de situer l'utilisateur et de l'informer si des actions sont possibles.
 
-#### Boutons
+### Boutons
 
 <img
   src={landingButtonHover}
@@ -93,7 +93,7 @@ Le bouton d'accès à l'aide ne dispose d'aucun style de survol ou de focus.
   alt="Capture d'écran du bouton d'accès à l'aide en ligne"
 />
 
-#### Lien
+### Lien
 
 <img src={landingLinkHover} alt="Capture d'écran animée du survol d'un lien" />
 
@@ -129,9 +129,9 @@ Le changement du style au focus est régi par le <a href="https://www.numerique.
 
 Ce critère n'est pas respecté pour lien. Au vu de la déclaration CSS citée ci-dessus et la présence de la valeur `currentColor`, je suppose qu'il s'agit d'un oubli.
 
-### Lecteur d'écran
+## Lecteur d'écran
 
-#### Images de décoration
+### Images de décoration
 
 Selon le <a href="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/methode-rgaa/criteres/#crit-1-2" target="__blank">critère 1.2</a> du <abbr title="Référentiel général d'amélioration de l'accessibilité">RGAA</abbr> :
 
@@ -148,7 +148,7 @@ Selon le <a href="https://www.numerique.gouv.fr/publications/rgaa-accessibilite/
 L'image d'illustration et l’icône présentes dans la fenêtre modale présentent tous deux l'attribut HTML `aria-hidden="true"`. Cet attribut permet d'omettre la lecture de ces éléments par les technologies de lecture d'écran.  
 En revanche, le `svg` du widget _Stonly_ ne possède pas cette propriété.
 
-#### Lecture du contenu
+### Lecture du contenu
 
 Cet attribut est également utilisé sur le nœud principal (<code><div&nbsp;id="root"&nbsp;/></code>) de l'application pour que la modal soit le seul élément lisible. Malheureusement, la modale est un des enfants du nœud principal, et est donc omise par les lecteurs d'écrans.
 
@@ -237,7 +237,7 @@ Une réécriture (simplifiée) utilisant une plus large sémantique pourrait res
 </div>
 ```
 
-### Changement de taille de police
+## Changement de taille de police
 
 Certains utilisateur·rice·s, déficients visuels, ont besoin de changer la taille de ce qui est affiché à l'écran. Ils peuvent pour cela effectuer un zoom directement dans le navigateur. L'application réagit très bien à ce comportement : la disposition passe automatiquement en mode mobile.
 

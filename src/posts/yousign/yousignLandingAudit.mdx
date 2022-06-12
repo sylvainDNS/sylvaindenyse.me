@@ -1,6 +1,6 @@
 ---
 path: '/blog/yousign-audit-accessibilite'
-date: '2022-06-11'
+date: '2022-06-12'
 title: "Audit d'accessibilité de la landing page de l'application Yousign"
 published: true
 thumbnail: ./images/landing.png
@@ -24,7 +24,7 @@ Dans le cadre de la recherche d'une nouvelle entreprise à rejoindre, j'ai réal
 
 Cet article ne vise pas à critiquer le travail réalisé par les équipes. Il a pour but d'analyser la mise en place des bonnes pratiques selon des éléments sourcés, afin de construire et améliorer ensemble un web plus inclusif.
 
-Yousign est une entreprise développant une application qui permet la signature de document en ligne et de manière sécurisée. L'entreprise a réalisé en 2021 une levée de fond de 30 millions d’euros, et a pour objectif de devenir le leader européen de la signature électronique.
+Yousign est une entreprise développant une application qui permet la signature de document en ligne de manière sécurisée. L'entreprise a réalisé en 2021 une levée de fond de 30 millions d’euros, et a pour objectif de devenir le leader européen de la signature électronique.
 
 La version de l'application testée est la `2022.05.25.0`.
 
@@ -150,7 +150,7 @@ En revanche, le `svg` du widget _Stonly_ ne possède pas cette propriété.
 
 ### Lecture du contenu
 
-Cet attribut est également utilisé sur le nœud principal (<code><div&nbsp;id="root"&nbsp;/></code>) de l'application pour que la modal soit le seul élément lisible. Malheureusement, la modale est un des enfants du nœud principal, et est donc omise par les lecteurs d'écrans.
+Cet attribut est également utilisé sur le nœud principal (<code><div&nbsp;id="root"&nbsp;/></code>) de l'application pour que la modale soit le seul élément lisible. Malheureusement, la modale est un des enfants du nœud principal, et est donc omise par les lecteurs d'écrans.
 
 Visionnez la vidéo ci-dessous pour mieux comprendre le problème en utilisant un lecteur d'écran. L'environnement de test était le suivant :
 
@@ -170,11 +170,11 @@ Il s'agit d'un problème majeur puisqu'il casse totalement l'accessibilité de l
 
 ### Sémantique HTML
 
-La sémantique HTML est pauvre dans la conception de cette fenêtre modale. Voici un résumé des éléments HTML utilisées (hors médias) :
+La sémantique HTML est pauvre dans la conception de cette fenêtre modale. Voici un résumé des éléments HTML utilisés (hors médias) :
 
 <table>
   <caption>
-    Décompte des différents éléments HTML utilisé pour construire la modale
+    Décompte des différents éléments HTML utilisés pour construire la modale
     (hors éléments de <code>react-modal</code>)
   </caption>
   <thead>
@@ -263,7 +263,7 @@ L'accessibilité est l'affaire de tous (<abbr title="Product Owner">PO</abbr>, d
 
 ## Bonus
 
-En réalisant ce mini-audit, j'ai noté la présence d'éléments que j'ai apprécié :
+En réalisant ce mini-audit, j'ai noté la présence d'éléments que j'ai appréciés :
 
 - Utilisation de [_React Portals_](https://reactjs.org/docs/portals.html), permettant d'utiliser l'ordre de rendu naturel du DOM pour gérer les empilements des éléments graphiques
 - Utilisation d'une bibliothèque de composants _headless_ ([Radix UI](https://www.radix-ui.com/)), permettant une meilleure accessibilité sur les composants customs

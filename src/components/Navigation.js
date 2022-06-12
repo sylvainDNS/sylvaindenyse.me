@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from '@emotion/styled'
 import { Link as DefaultLink } from 'gatsby'
+import { SkipNavLink } from '@reach/skip-nav'
 
 const navLinks = [
   { label: 'Blog', to: '/blog' },
@@ -16,6 +17,8 @@ const Navigation = () => {
   return (
     <Wrapper style={style}>
       <Container>
+        <SkipNavLink tabIndex="1">Aller au contenu</SkipNavLink>
+
         <Nav>
           <HomeLink to="/">Sylvain DENYSE</HomeLink>
           <LinkList>
@@ -34,18 +37,17 @@ const Navigation = () => {
 }
 
 const Wrapper = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 1;
 
-  min-height: 60px;
-  width: 100%;
-  padding-left: calc((100vw - 100%) / 2);
+  display: flex;
+  align-items: center;
   align-self: flex-end;
+  justify-content: center;
+  width: 100%;
+  min-height: 60px;
+  padding-left: calc((100vw - 100%) / 2);
 
   background-color: var(--color-background);
   box-shadow: 0 3px 5px var(--box-shadow);
@@ -63,15 +65,15 @@ const Container = styled.section`
 const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
-
-  margin: 0 auto;
   padding: 0 20px;
+  margin: 0 auto;
 
   font-weight: var(--font-weight-medium);
 `
 
 const Link = styled(DefaultLink)`
-  &:not(:hover) {
+  &:not(:hover),
+  &:not(:focus) {
     color: var(--color-text);
 
     &.active:after {

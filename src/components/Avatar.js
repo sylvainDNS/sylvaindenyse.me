@@ -7,7 +7,7 @@ const Avatar = ({ css: cssProps }) => (
   <StaticImage
     css={css`
       border-radius: 50%;
-      ${cssProps};
+      ${cssProps}
     `}
     width={200}
     src="../images/avatar.jpg"

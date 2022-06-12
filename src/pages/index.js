@@ -16,9 +16,9 @@ import VisuallyHidden from '../components/VisuallyHidden'
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   flex-grow: 1;
+  align-items: center;
+  justify-content: center;
 
   text-align: center;
 
@@ -31,11 +31,11 @@ const Wrapper = styled.div`
   }
 
   .link-list {
-    list-style: none;
-    margin: 32px 0 10px;
     padding: 0;
+    margin: 32px 0 10px;
 
     font-size: 32px;
+    list-style: none;
 
     --color-link: var(--color-text);
     --color-link-hover: var(--color-text);
@@ -43,6 +43,20 @@ const Wrapper = styled.div`
     .link-item {
       display: inline;
       margin: 0 10px;
+      @media screen and (prefers-reduced-motion: reduce) {
+        a {
+          transition: none;
+
+          &:hover,
+          &:focus {
+            transition: none;
+          }
+
+          &:after {
+            width: 0;
+          }
+        }
+      }
 
       a {
         transition: 1s ease color;
@@ -75,21 +89,18 @@ const Wrapper = styled.div`
   .instagram {
     position: relative;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background: transparent;
     }
 
     &:before {
-      content: '';
       position: absolute;
+      top: 9px;
+      left: 0;
       width: calc(0.875em - 1px);
       height: calc(0.875em - 1px);
-
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-
-      border-radius: 12px;
+      content: '';
       background: radial-gradient(
         circle at 30% 107%,
         #fdf497 0%,
@@ -98,18 +109,23 @@ const Wrapper = styled.div`
         #d6249f 60%,
         #285aeb 90%
       );
-
+      border-radius: 8px;
       opacity: 0;
-      transition: 1s ease opacity;
+
+      @media screen and (prefers-reduced-motion: reduce) {
+        transition: 1s ease opacity;
+        transform: translate(-50%, -50%);
+      }
     }
 
     svg {
       position: relative;
     }
 
-    &:hover:before {
-      transition: none;
+    &:hover:before,
+    &:focus:before {
       opacity: 1;
+      transition: none;
     }
   }
 `

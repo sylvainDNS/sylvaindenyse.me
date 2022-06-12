@@ -1,0 +1,39 @@
+@font-face {
+  font-family: OpenDyslexic;
+  src: url('./opendyslexic-regular.woff') format('woff'),
+    url('./opendyslexic-regular.ttf') format('truetype'),
+    url('./opendyslexic-regular.eot') format('embedded-opentype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: OpenDyslexic;
+  src: url('./opendyslexic-regularitalic.woff') format('woff'),
+    url('./opendyslexic-regularitalic.ttf') format('truetype'),
+    url('./opendyslexic-regularitalic.eot') format('embedded-opentype');
+  font-style: italic;
+  font-weight: 400;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: OpenDyslexic;
+  src: url('./opendyslexic-bold.woff') format('woff'),
+    url('./opendyslexic-bold.ttf') format('truetype'),
+    url('./opendyslexic-bold.eot') format('embedded-opentype');
+  font-style: normal;
+  font-weight: 500;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: OpenDyslexic;
+  src: url('./opendyslexic-bolditalic.woff') format('woff'),
+    url('./opendyslexic-bolditalic.ttf') format('truetype'),
+    url('./opendyslexic-bolditalic.eot') format('embedded-opentype');
+  font-style: italic;
+  font-weight: 500;
+  font-display: fallback;
+}

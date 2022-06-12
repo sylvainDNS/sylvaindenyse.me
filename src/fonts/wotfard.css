@@ -1,0 +1,60 @@
+@font-face {
+  font-family: Wotfard;
+  src: url('./wotfard-light-webfont.woff2') format('woff2'),
+    url('./wotfard-light-webfont.ttf') format('truetype'),
+    url('./wotfard-light-webfont.eot') format('embedded-opentype');
+  font-style: normal;
+  font-weight: 200;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: Wotfard;
+  src: url('./wotfard-lightitalic-webfont.woff2') format('woff2'),
+    url('./wotfard-lightitalic-webfont.ttf') format('truetype'),
+    url('./wotfard-lightitalic-webfont.eot') format('embedded-opentype');
+  font-style: italic;
+  font-weight: 200;
+  font-display: fallback;
+}
+
+
+@font-face {
+  font-family: Wotfard;
+  src: url('./wotfard-regular-webfont.woff2') format('woff2'),
+    url('./wotfard-regular-webfont.ttf') format('truetype'),
+    url('./wotfard-regular-webfont.eot') format('embedded-opentype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: Wotfard;
+  src: url('./wotfard-regularitalic-webfont.woff2') format('woff2'),
+    url('./wotfard-regularitalic-webfont.ttf') format('truetype'),
+    url('./wotfard-regularitalic-webfont.eot') format('embedded-opentype');
+  font-style: italic;
+  font-weight: 400;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: Wotfard;
+  src: url('./wotfard-medium-webfont.woff2') format('woff2'),
+    url('./wotfard-medium-webfont.ttf') format('truetype'),
+    url('./wotfard-medium-webfont.eot') format('embedded-opentype');
+  font-style: normal;
+  font-weight: 500;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: Wotfard;
+  src: url('./wotfard-mediumitalic-webfont.woff2') format('woff2'),
+    url('./wotfard-mediumitalic-webfont.ttf') format('truetype'),
+    url('./wotfard-mediumitalic-webfont.eot') format('embedded-opentype');
+  font-style: italic;
+  font-weight: 500;
+  font-display: fallback;
+}

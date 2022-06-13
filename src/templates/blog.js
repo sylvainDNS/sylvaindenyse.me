@@ -107,6 +107,15 @@ const Article = styled.article`
     }
   }
 
+  code {
+    padding: 0 2px;
+    margin: 0 -2px;
+    font-size: 0.9em;
+    color: orange;
+    background-color: var(--color-background-light);
+    border-radius: 10px;
+  }
+
   .gatsby-image-wrapper.gatsby-image-wrapper-constrained {
     display: block;
     width: 100%;

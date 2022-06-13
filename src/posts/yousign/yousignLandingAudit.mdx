@@ -150,7 +150,7 @@ En revanche, le `svg` du widget _Stonly_ ne possède pas cette propriété.
 
 ### Lecture du contenu
 
-Cet attribut est également utilisé sur le nœud principal (<code><div&nbsp;id="root"&nbsp;/></code>) de l'application pour que la modale soit le seul élément lisible. Malheureusement, la modale est un des enfants du nœud principal, et est donc omise par les lecteurs d'écrans.
+L'attribut `aria-hidden` est également utilisé sur le nœud principal (<code><div&nbsp;id="root"&nbsp;/></code>) de l'application pour que la modale soit le seul élément lisible. Malheureusement, la modale est un des enfants du nœud principal, et est donc omise par les lecteurs d'écrans.
 
 Visionnez la vidéo ci-dessous pour mieux comprendre le problème en utilisant un lecteur d'écran. L'environnement de test était le suivant :
 
@@ -162,6 +162,8 @@ Visionnez la vidéo ci-dessous pour mieux comprendre le problème en utilisant u
   <source src={screenReaderIssueWebm} type="video/webm" />
   <source src={screenReaderIssueMp4} type="video/mp4" />
 </video>
+
+La vidéo démontre qu'après la connexion à l'application le lecteur d'écran reste muet, ne trouvant aucun texte à lire.
 
 La dépendance [`react-modal`](https://www.npmjs.com/package/react-modal) semble être utilisée pour gérer la modale et cause probablement ce problème.  
 En effet, il est référencé sur le [GitHub du projet](https://github.com/reactjs/react-modal/issues/359#issuecomment-288586858). Les contributeurs préconisent de suivre la documentation à cette adresse : [react-modal Documentation : Accessibility](http://reactcommunity.org/react-modal/accessibility/)

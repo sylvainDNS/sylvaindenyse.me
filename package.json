@@ -60,7 +60,7 @@
     "eslint-plugin-react-hooks": "^4.5.0",
     "eslint-webpack-plugin": "^3.1.1",
     "gatsby-plugin-eslint": "^4.0.2",
-    "jest": "^27.5.1",
+    "jest": "^28.1.3",
     "jest-preset-gatsby": "^1.0.134",
     "postcss-jsx": "^0.36.4",
     "postcss-syntax": "^0.36.2",

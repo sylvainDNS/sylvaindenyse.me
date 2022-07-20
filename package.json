@@ -69,6 +69,6 @@
     "stylelint": "^14.7.1",
     "stylelint-a11y": "^1.2.3",
     "stylelint-config-recess-order": "^3.0.0",
-    "stylelint-config-recommended": "^7.0.0"
+    "stylelint-config-recommended": "^8.0.0"
   }
 }

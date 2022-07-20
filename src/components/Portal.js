@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 
 const portalRoot =
   typeof document !== `undefined` ? document.getElementById('portal') : null
@@ -20,4 +21,7 @@ const Portal = ({ children }) => {
   return null
 }
 
+Portal.propTypes = {
+  children: PropTypes.node,
+}
 export default Portal

@@ -29,7 +29,7 @@
     "@mdx-js/react": "^1.6.22",
     "@reach/skip-nav": "^0.17.0",
     "@react-hook/media-query": "^1.1.1",
-    "focus-trap-react": "^8.11.2",
+    "focus-trap-react": "^9.0.2",
     "gatsby": "^4.1.4",
     "gatsby-plugin-build-date": "^1.0.0",
     "gatsby-plugin-emotion": "^7.1.0",

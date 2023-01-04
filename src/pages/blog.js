@@ -30,6 +30,7 @@ const Blog = ({ data }) => {
                 <GatsbyImage
                   image={getImage(node.frontmatter.thumbnail)}
                   aria-hidden="true"
+                  alt=""
                 />
                 <h3>{node.frontmatter.title}</h3>
                 <p>{node.excerpt}</p>

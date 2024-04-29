@@ -51,16 +51,10 @@ const SEO = ({
       )}
       {seo.image && <meta name="twitter:image" content={seo.image} />}
       <script
-        async
         defer
         data-domain="sylvaindenyse.me"
-        src="https://stats.sylvaindenyse.me/js/index.js"
-      ></script>
-      <script
-        async
-        defer
-        data-domain="sylvaindenyse.me"
-        src="https://stats.sylvaindenyse.me/js/index.outbound-links.js"
+        data-api="/mix/load/event"
+        src="/mix/load/script.outbound-links.js"
       ></script>
     </Helmet>
   )
